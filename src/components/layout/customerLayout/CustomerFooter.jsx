@@ -10,7 +10,7 @@ const settings = {
     text: "Talk to me! 😊"
   },
   header: {
-    title: "FitLab Bot"
+    title: "FIT-Matrix Bot"
   },
   chatButton: {
     icon: "https://www.shutterstock.com/image-vector/chat-bot-icon-virtual-smart-600nw-2478937553.jpg"
@@ -19,7 +19,7 @@ const settings = {
   
   const flow = {
     start: {
-      message: "Welcome to FitLab 💪! Ask me anything about fitness.",
+      message: "Welcome to Fit-Matrix 💪! Ask me anything about fitness.",
       path: "chat"
       //  image: "https://www.shutterstock.com/image-vector/chat-bot-icon-virtual-smart-600nw-2478937553.jpg"
     },
