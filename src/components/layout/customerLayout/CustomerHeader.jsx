@@ -43,7 +43,7 @@ export default function CustomerHeader() {
         e.preventDefault()
         toast.success("Logout Successfully")
         localStorage.clear()
-        nav('/login')
+        nav('/')
     }
 
     const submit = (e) => {

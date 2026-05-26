@@ -8,7 +8,7 @@ export default function TrainerHeader() {
         e.preventDefault()
         toast.success("Logout Successfully")
         localStorage.clear()
-        nav('/login')
+        nav('/')
     }
     return (
         <>
