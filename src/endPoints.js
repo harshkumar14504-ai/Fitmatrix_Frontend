@@ -1,4 +1,5 @@
-export const BASE_URL = "http://localhost:6400/"
+export const BASE_URL = "https://fitmatrix-backend.onrender.com/"
+// export const BASE_URL = "http://localhost:6400/"
 
 export const REGISTER = "customer/register"
 export const LOGIN = "admin/login"
