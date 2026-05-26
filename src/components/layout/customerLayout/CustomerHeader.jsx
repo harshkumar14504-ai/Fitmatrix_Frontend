@@ -88,73 +88,205 @@ export default function CustomerHeader() {
     }
     return (
         <>
-            <ReactModal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                style={customStyles}
-                contentLabel="Example Modal"
+              <ReactModal
+  isOpen={modalIsOpen}
+  onRequestClose={closeModal}
+  style={{
+    overlay: {
+      backgroundColor: "rgba(0,0,0,0.7)",
+      backdropFilter: "blur(5px)",
+      zIndex: 999,
+    },
+    content: {
+      width: "55%",
+      maxWidth: "650px",
+      height: "550px",
+      margin: "auto",
+      padding: "0",
+      border: "none",
+      borderRadius: "18px",
+      overflow: "hidden",
+      background: "#07154A",
+      boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
+      animation: "popupZoom 0.4s ease",
+    },
+  }}
+  contentLabel="Login Modal"
+>
+  <div
+    className="form-section p-5 position-relative"
+    style={{
+      background: "#07154A",
+    }}
+  >
+
+    {/* Close Button */}
+ <button
+  onClick={closeModal}
+  style={{
+    position: "absolute",
+    top: "10px",
+    right: "15px",
+    border: "none",
+    background: "rgba(255,255,255,0.08)",
+    cursor: "pointer",
+    fontSize: "28px",
+    color: "#00d4ff",
+    width: "42px",
+    height: "42px",
+    borderRadius: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "0.3s ease",
+    boxShadow: "0 0 10px rgba(0,212,255,0.4)"
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.background = "#00d4ff";
+    e.target.style.color = "#001f3f";
+    e.target.style.transform = "rotate(90deg) scale(1.1)";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.background = "rgba(255,255,255,0.08)";
+    e.target.style.color = "#00d4ff";
+    e.target.style.transform = "rotate(0deg) scale(1)";
+  }}
+>
+  <i className="bi bi-x"></i>
+</button>
+
+    {/* Heading */}
+    <h1
+      className="text-white text-center mb-5"
+      style={{
+        fontWeight: "700",
+        fontSize: "55px",
+        letterSpacing: "1px",
+      }}
+    >
+      Login
+    </h1>
+
+    <form onSubmit={submit}>
+      <div className="row g-4">
+
+        {/* Email */}
+        <div className="col-12">
+          <div className="form-floating">
+            <input
+              type="email"
+              className="form-control border-0"
+              id="email"
+              value={email}
+              placeholder="Enter Email"
+              onChange={(e) => setEmail(e.target.value)}
+              style={{
+                height: "65px",
+                borderRadius: "12px",
+                background: "#f4f4f4",
+                fontSize: "17px",
+                boxShadow: "none",
+              }}
+            />
+            <label htmlFor="email">Enter Email</label>
+          </div>
+        </div>
+
+        {/* Password */}
+        <div className="col-12">
+          <div className="form-floating">
+            <input
+              type="password"
+              className="form-control border-0"
+              id="password"
+              value={password}
+              placeholder="Enter Password"
+              onChange={(e) => setPassword(e.target.value)}
+              style={{
+                height: "65px",
+                borderRadius: "12px",
+                background: "#f4f4f4",
+                fontSize: "17px",
+                boxShadow: "none",
+              }}
+            />
+            <label htmlFor="password">Enter Password</label>
+          </div>
+        </div>
+
+        {/* Checkbox */}
+        <div className="col-12">
+          <div className="form-check mt-2">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="flexCheck"
+              style={{
+                cursor: "pointer",
+              }}
+            />
+
+            <label
+              className="form-check-label text-light"
+              htmlFor="flexCheck"
+              style={{
+                fontSize: "15px",
+                opacity: "0.9",
+              }}
             >
+              I agree with the site privacy policy
+            </label>
+          </div>
+        </div>
 
-                <div className="form-section bg-dark p-5 h-100">
-                    <h1 className="display-4 text-white mb-4 offset-4">Login</h1>
-                    <form onSubmit={submit}>
-                        <div className="row g-4">
-                            <div className=" col-12">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="email"
-                                        className="form-control border-0"
-                                        id="email" value={email}
-                                        placeholder="Project"
-                                        onChange={getEmail}
-                                    />
-                                    <label htmlFor="project">Enter Email</label>
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="password"
-                                        className="form-control border-0"
-                                        id="subject" value={password}
-                                        placeholder="Subject"
-                                        onChange={getPassword}
-                                    />
-                                    <label htmlFor="subject">Enter Password</label>
-                                </div>
-                            </div>
+        {/* Button */}
+        <div className="col-12 mt-4">
+          <button
+            className="w-100 border-0"
+            type="submit"
+            style={{
+              background: "#e6004c",
+              color: "#fff",
+              height: "60px",
+              borderRadius: "12px",
+              fontSize: "20px",
+              fontWeight: "600",
+              letterSpacing: "1px",
+              transition: "0.3s",
+              boxShadow: "0 5px 20px rgba(230,0,76,0.4)",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = "translateY(-3px)";
+              e.target.style.background = "#ff0055";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "translateY(0px)";
+              e.target.style.background = "#e6004c";
+            }}
+          >
+            LOGIN
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 
-                            <div className="col-12">
-                                <div className="form-check">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        defaultValue="#"
-                                        id="flexCheck"
-                                    />
-                                    <label className="form-check-label" htmlFor="flexCheck">
-                                        I agree with the site privacy policy
-                                    </label>
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <div className="form-section-col">
-                                    <button className="btn-primary w-100 py-3 px-5" type="submit" >
-                                        LOGIN
-                                    </button>
-                                    <button className="btn-primary w-100 py-3 px-5" type="submit" onClick={closeModal} >
-                                        CANCEL
-                                    </button>
-                                    {/* <button className="btn-primary w-100 py-3 px-5" type="submit" onClick={ChangePassword} >
-                                            Change Password
-                                        </button> */}
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </ReactModal>
+  {/* Animation */}
+  <style>
+    {`
+      @keyframes popupZoom {
+        from {
+          opacity: 0;
+          transform: scale(0.7);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    `}
+  </style>
+</ReactModal>
 
             {/* Navbar & Hero Start */}
             <div className="container-fluid header-top">
@@ -164,7 +296,7 @@ export default function CustomerHeader() {
                         <a href="#" className="navbar-brand" style={{ height: 125 }}>
                             <h1 className="mb-0" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '10px' }}>
                                 <i className="fas fa-dumbbell text-danger" />
-                                <span style={{ fontWeight: 900, letterSpacing: '2px', color: 'white' }}>FITLAB</span>
+                                <span style={{ fontWeight: 900, letterSpacing: '2px', color: 'white' }}>FIT-MATRIX</span>
                             </h1>
                             {/* <img src="img/logo.png" alt="Logo"> */}
                         </a>
@@ -183,7 +315,7 @@ export default function CustomerHeader() {
                                                 className="text-muted small"
                                             >
                                                 <i className="fas fa-envelope text-primary me-2" />
-                                                Fitlab@gmail.com
+                                                Fitmatrix@gmail.com
                                             </a>
                                         </div>
                                         <div className="pe-0">
@@ -210,7 +342,7 @@ export default function CustomerHeader() {
                                 <a href="#" className="navbar-brand-2">
                                     <h1 className="mb-0" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '10px' }}>
                                         <i className="fas fa-dumbbell text-danger" />
-                                        <span style={{ fontWeight: 900, letterSpacing: '2px', color: 'white' }}>FITLAB</span>
+                                        <span style={{ fontWeight: 900, letterSpacing: '2px', color: 'white' }}>FITMATRIX</span>
                                     </h1>
                                     {/* <img src="img/logo.png" alt="Logo"> */}
                                 </a>
@@ -235,9 +367,9 @@ export default function CustomerHeader() {
                                             <div className="nav-item dropdown">
                                                 <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">My Fitness</a>
                                                 <div className="dropdown-menu">
-                                                    <Link to="/customer/diet" className="dropdown-item">My Diet</Link>
-                                                    <Link to="/customer/exercises" className="dropdown-item">My Exercises</Link>
-                                                    <Link to="/customer/progress" className="dropdown-item">My Progress</Link>
+                                                    <Link to="/customer/diet" className="dropdown-item"> Diet</Link>
+                                                    <Link to="/customer/exercises" className="dropdown-item"> Exercises</Link>
+                                                    <Link to="/customer/progress" className="dropdown-item"> Progress</Link>
                                                     <Link to="/ai-coach" className="dropdown-item">AI Coach</Link>
                                                 </div>
                                             </div>

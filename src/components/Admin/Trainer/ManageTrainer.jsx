@@ -79,28 +79,7 @@ export default function ManageTrainer() {
     return (
         <>
             {/* Header Start */}
-            <div className="container-fluid bg-breadcrumb">
-                <div className="container text-center py-5" style={{ maxWidth: 900 }}>
-                    <h4
-                        className="text-white display-4 mb-4 wow fadeInDown"
-                        data-wow-delay="0.1s"
-                    >
-                        Manage Trainers
-                    </h4>
-                    <ol
-                        className="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown"
-                        data-wow-delay="0.3s"
-                    >
-                        <li className="breadcrumb-item">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li className="breadcrumb-item">
-                            <a href="#">Pages</a>
-                        </li>
-                        <li className="breadcrumb-item active text-primary">Contact</li>
-                    </ol>
-                </div>
-            </div>
+           
             {/* Header End */}
             {/* Team start */}
             <RingLoader
@@ -110,86 +89,193 @@ export default function ManageTrainer() {
                 size={100}
             />
 
-            <div className="container-xxl">
-                <div className="container">
-                    <div className="row my-2">
-                        <div className="col-md h4">
-                            Manage Trainers
-                        </div>
-                        <div className="col-md text-end">
-                            <Link to="/admin/trainer/add">
-                                <button className="btn btn-sm btn-primary rounded rounded-pill" type="submit">
-                                    + Add New Trainer
-                                </button>
-                            </Link>
-                        </div>
-                    </div>
-                    <table className="table table-bordered text-dark">
-                        <thead>
-                            <tr>
-                                <th scope="col">Sr.no</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Contact</th>
-                                <th scope="col">Experience</th>
+          <div className="container-fluid py-3">
 
-                                <th scope="col">Image</th>
-                                <th scope="col">Specialization</th>
-                                <th scope="col">Status</th>
+    {/* Heading */}
+    <div className="row my-2 align-items-center">
+        <div className="col-md h4 fw-bold text-dark">
+            Manage Trainers
+        </div>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                Trainers.map((Trainer, index) => (
-                                    <tr>
-                                        <th scope="row">
-                                            {index + 1}
-                                        </th>
-                                        <td scope="row">
-                                            {Trainer.name}
-                                        </td>
-                                        <td scope="row">
-                                            {Trainer.email}
-                                        </td>
-                                        <td scope="row">
-                                            {Trainer.experience}
-                                        </td>
-                                        <td scope="row">
-                                            {Trainer.phone}
-                                        </td>
-                                        <td>
-                                            <a href={Trainer.image} target="_blank">
-                                                <img src={Trainer.image} alt="unable to load" style={imageStyle} />
-                                            </a>
-                                        </td>
-                                        <td scope="row">
-                                            {Trainer.speacilization}
-                                        </td>
-                                        <td scope="row">
-                                            {Trainer.status}
+        <div className="col-md text-end">
+            <Link to="/admin/trainer/add">
+                <button
+                    className="btn btn-sm rounded-pill px-4 py-2"
+                    style={{
+                        background: "#2563eb",
+                        color: "#fff",
+                        border: "none",
+                        fontWeight: "600"
+                    }}
+                >
+                    + Add New Trainer
+                </button>
+            </Link>
+        </div>
+    </div>
 
-                                            <Link to={`/admin/trainer/update/${Trainer._id}`}>
-                                                <button className="btn btn-sm text-primary">
-                                                    <i className="bi bi-pencil-square"></i>
-                                                </button>
-                                            </Link>
-                                            <button className="btn text-danger" onClick={() => {
-                                                deleteTrainerFun(Trainer._id)
-                                            }}>
+    {/* Responsive Table */}
+    <div
+        className="table-responsive mt-4 mx-auto"
+        style={{
+            maxWidth: "1400px",
+            padding: "0 10px"
+        }}
+    >
 
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
+        <table
+            className="table align-middle"
+            style={{
+                borderCollapse: "separate",
+                borderSpacing: "0 12px",
+                fontSize: "14.5px",
+                width: "100%"
+            }}
+        >
 
+            {/* Table Head */}
+            <thead>
+                <tr
+                    style={{
+                        background: "#1e293b",
+                        color: "#f1f5f9",
+                        fontSize: "13.5px"
+                    }}
+                >
+                    <th style={{ padding: "14px 16px" }}>#</th>
+                    <th style={{ padding: "14px 16px" }}>Name</th>
+                    <th style={{ padding: "14px 16px" }}>Email</th>
+                    <th style={{ padding: "14px 16px" }}>Experience</th>
+                    <th style={{ padding: "14px 16px" }}>Contact</th>
+                    <th style={{ padding: "14px 16px" }}>Image</th>
+                    <th style={{ padding: "14px 16px" }}>Specialization</th>
+                    <th style={{ padding: "14px 16px" }}>Status</th>
+                </tr>
+            </thead>
 
-                </div>
-            </div>
+            {/* Table Body */}
+            <tbody>
+                {
+                    Trainers.map((Trainer, index) => (
+                        <tr
+                            key={Trainer._id}
+                            style={{
+                                background: index % 2 === 0 ? "#ffffff" : "#f1f5f9",
+                                borderRadius: "10px",
+                                transition: "all 0.2s ease",
+                                boxShadow: "0 2px 6px rgba(0,0,0,0.05)"
+                            }}
+                        >
+
+                            {/* Sr No */}
+                            <td
+                                style={{ padding: "14px 16px" }}
+                                className="fw-semibold text-muted"
+                            >
+                                {index + 1}
+                            </td>
+
+                            {/* Name */}
+                            <td
+                                style={{
+                                    padding: "14px 16px",
+                                    fontWeight: "600"
+                                }}
+                            >
+                                {Trainer.name}
+                            </td>
+
+                            {/* Email */}
+                            <td
+                                style={{
+                                    padding: "14px 16px",
+                                    maxWidth: "180px",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap"
+                                }}
+                            >
+                                {Trainer.email}
+                            </td>
+
+                            {/* Experience */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Trainer.experience}
+                            </td>
+
+                            {/* Contact */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Trainer.phone}
+                            </td>
+
+                            {/* Image */}
+                            <td style={{ padding: "14px 16px" }}>
+                                <a
+                                    href={Trainer.image}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <img
+                                        src={Trainer.image}
+                                        alt="unable to load"
+                                        style={{
+                                            width: "55px",
+                                            height: "55px",
+                                            borderRadius: "50%",
+                                            objectFit: "cover",
+                                            border: "2px solid #e2e8f0"
+                                        }}
+                                    />
+                                </a>
+                            </td>
+
+                            {/* Specialization */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Trainer.speacilization}
+                            </td>
+
+                           {/* Status + Actions */}
+              <td style={{ padding: "16px 18px" }} >
+
+                <Link
+                    to={`/admin/trainer/update/${Trainer._id}`}
+                  style={{
+                    color: "#2563eb",
+                    marginRight: "12px",
+                    fontSize: "17px",
+                    padding: "2px",
+                    borderRadius: "6px"
+                  }}
+                >
+                  <i className="bi bi-pencil"></i>
+                </Link>
+
+                <button
+                  onClick={() => {
+                    deleteTrainerFun(Trainer._id)
+                }}
+                  style={{
+                    color: "#ef4444",
+                    border: "none",
+                    background: "transparent",
+                    fontSize: "17px",
+                    padding: "8px",
+                    borderRadius: "6px"
+                  }}
+                >
+                  <i className="bi bi-trash"></i>
+                </button>
+
+              </td>
+
+                        </tr>
+                    ))
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
 
             {/* Team End */}
         </>

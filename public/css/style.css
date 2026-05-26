@@ -413,8 +413,8 @@
     .nav-shaps-1 {
         position: absolute;
         overflow: hidden;
-        min-width: calc(100% - 81%);
-        height: 100%;
+        min-width: calc(100% - 74%);
+        height: 110%;
         top: 0;
         right: 0;
         transform: skew(18deg);

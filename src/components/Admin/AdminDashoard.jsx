@@ -107,182 +107,449 @@ export default function AdminDashboard() {
 
     return (
         <>
-             <div className="container-fluid bg-breadcrumb">
-                <div className="container text-center py-5" style={{ maxWidth: 900 }}>
-                    <h4 className="text-white display-4 mb-4">Admin Dashboard</h4>
-                    <ol className="breadcrumb d-flex justify-content-center mb-0">
-                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                        <li className="breadcrumb-item active text-primary">Dashboard</li>
-                    </ol>
+          
+
+            {loading ? (
+    <div className="d-flex justify-content-center align-items-center vh-100">
+        <RingLoader
+            color="#ff1744"
+            loading={loading}
+            cssOverride={override}
+            size={90}
+        />
+    </div>
+) : (
+    <div
+        className="container-fluid py-4"
+        style={{
+            background: "#f4f7fc",
+            minHeight: "100vh",
+        }}
+    >
+        {/* TOP CARDS */}
+        <div className="row g-4 mb-4">
+            {/* Customers */}
+            <div className="col-md-6 col-xl-3">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{
+                        borderRadius: "20px",
+                        transition: "0.4s",
+                        overflow: "hidden",
+                    }}
+                >
+                    <div className="card-body d-flex align-items-center p-4">
+                        <div
+                            className="d-flex justify-content-center align-items-center"
+                            style={{
+                                width: "75px",
+                                height: "75px",
+                                borderRadius: "18px",
+                                background:
+                                    "linear-gradient(135deg,#ff1744,#ff5252)",
+                                color: "white",
+                                boxShadow: "0 10px 25px rgba(255,23,68,0.4)",
+                            }}
+                        >
+                            <i className="fas fa-users fa-2x"></i>
+                        </div>
+
+                        <div className="ms-4">
+                            <p
+                                className="mb-1 text-secondary"
+                                style={{ fontSize: "15px" }}
+                            >
+                                Total Customers
+                            </p>
+
+                            <h2
+                                className="fw-bold mb-0"
+                                style={{ color: "#0b1c49" }}
+                            >
+                                {customersCount}
+                            </h2>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {loading ? (
-                <div className="d-flex justify-content-center py-5">
-                    <RingLoader color="#eb0c1b" loading={loading} cssOverride={override} size={80} />
-                </div>
-            ) : (
-                <div className="container-fluid py-4">
-                    <div className="row g-4 mb-4">
-                        <div className="col-md-6 col-xl-3">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-body d-flex align-items-center">
-                                    <div className="flex-shrink-0 bg-primary bg-opacity-10 p-3 rounded">
-                                        <i className="fas fa-users fa-2x text-primary"></i>
-                                    </div>
-                                    <div className="flex-grow-1 ms-3">
-                                        <p className="text-muted mb-0"><i className="fas fa-users me-2"></i>Total Customers</p>
-                                        <h3 className="mb-0 fw-bold">{customersCount}</h3>
-                                    </div>
-                                </div>
-                            </div>
+            {/* Membership */}
+            <div className="col-md-6 col-xl-3">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{
+                        borderRadius: "20px",
+                        transition: "0.4s",
+                        overflow: "hidden",
+                    }}
+                >
+                    <div className="card-body d-flex align-items-center p-4">
+                        <div
+                            className="d-flex justify-content-center align-items-center"
+                            style={{
+                                width: "75px",
+                                height: "75px",
+                                borderRadius: "18px",
+                                background:
+                                    "linear-gradient(135deg,#00c853,#69f0ae)",
+                                color: "white",
+                                boxShadow: "0 10px 25px rgba(0,200,83,0.4)",
+                            }}
+                        >
+                            <i className="fas fa-id-card fa-2x"></i>
                         </div>
-                        <div className="col-md-6 col-xl-3">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-body d-flex align-items-center">
-                                    <div className="flex-shrink-0 bg-success bg-opacity-10 p-3 rounded">
-                                        <i className="fas fa-id-card fa-2x text-success"></i>
-                                    </div>
-                                    <div className="flex-grow-1 ms-3">
-                                        <p className="text-muted mb-0"><i className="fas fa-id-card me-2"></i>Active Memberships</p>
-                                        <h3 className="mb-0 fw-bold">{membershipsCount}</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 col-xl-3">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-body d-flex align-items-center">
-                                    <div className="flex-shrink-0 bg-warning bg-opacity-10 p-3 rounded">
-                                        <i className="fas fa-chalkboard-teacher fa-2x text-warning"></i>
-                                    </div>
-                                    <div className="flex-grow-1 ms-3">
-                                        <p className="text-muted mb-0"><i className="fas fa-chalkboard-teacher me-2"></i>Total Trainers</p>
-                                        <h3 className="mb-0 fw-bold">{trainersCount}</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 col-xl-3">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-body d-flex align-items-center">
-                                    <div className="flex-shrink-0 bg-info bg-opacity-10 p-3 rounded">
-                                        <i className="fas fa-layer-group fa-2x text-info"></i>
-                                    </div>
-                                    <div className="flex-grow-1 ms-3">
-                                        <p className="text-muted mb-0"><i className="fas fa-layer-group me-2"></i>Total Batches</p>
-                                        <h3 className="mb-0 fw-bold">{batchesCount}</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className="row g-4 mb-4">
-                        <div className="col-lg-6">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-header bg-white border-0">
-                                    <h5 className="mb-0">Quick Actions</h5>
-                                </div>
-                                <div className="card-body">
-                                    <div className="row g-3">
-                                        <div className="col-6">
-                                            <Link to="/admin/customers" className="btn btn-outline-primary w-100 py-3">
-                                                <i className="fas fa-users mb-2 d-block fs-4"></i>
-                                                Manage Customers
-                                            </Link>
-                                        </div>
-                                        <div className="col-6">
-                                            <Link to="/admin/trainer/manage" className="btn btn-outline-warning w-100 py-3">
-                                                <i className="fas fa-chalkboard-teacher mb-2 d-block fs-4"></i>
-                                                Manage Trainers
-                                            </Link>
-                                        </div>
-                                        <div className="col-6">
-                                            <Link to="/admin/batch/manage" className="btn btn-outline-info w-100 py-3">
-                                                <i className="fas fa-layer-group mb-2 d-block fs-4"></i>
-                                                Manage Batches
-                                            </Link>
-                                        </div>
-                                        <div className="col-6">
-                                            <Link to="/admin/requests/manage" className="btn btn-outline-success w-100 py-3">
-                                                <i className="fas fa-clipboard-list mb-2 d-block fs-4"></i>
-                                                View Requests
-                                            </Link>
-                                        </div>
-                                        <div className="col-6">
-                                            <Link to="/admin/diets" className="btn btn-outline-danger w-100 py-3">
-                                                <i className="fas fa-utensils mb-2 d-block fs-4"></i>
-                                                View Diets
-                                            </Link>
-                                        </div>
-                                        <div className="col-6">
-                                            <Link to="/admin/exercises" className="btn btn-outline-dark w-100 py-3">
-                                                <i className="fas fa-dumbbell mb-2 d-block fs-4"></i>
-                                                View Exercises
-                                            </Link>
-                                        </div>
-                                        <div className="col-6">
-                                            <Link to="/admin/ai-coach" className="btn btn-outline-info w-100 py-3">
-                                                <i className="fas fa-robot mb-2 d-block fs-4"></i>
-                                                AI Coach
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-header bg-white border-0">
-                                    <h5 className="mb-0">View & Reports</h5>
-                                </div>
-                                <div className="card-body">
-                                    <div className="row g-3">
-                                        <div className="col-6">
-                                            <Link to="/admin/progress" className="btn btn-outline-secondary w-100 py-3">
-                                                <i className="fas fa-chart-line mb-2 d-block fs-4"></i>
-                                                View Progress
-                                            </Link>
-                                        </div>
-                                        {/* <div className="col-6">
-                                            <Link to="/admin/reports" className="btn btn-outline-primary w-100 py-3">
-                                                <i className="fas fa-file-alt mb-2 d-block fs-4"></i>
-                                                Generate Reports
-                                            </Link>
-                                        </div> */}
-                                        {/* <div className="col-6">
-                                            <Link to="/admin/membership/manage" className="btn btn-outline-success w-100 py-3">
-                                                <i className="fas fa-crown mb-2 d-block fs-4"></i>
-                                                Memberships
-                                            </Link>
-                                        </div> */}
-                                        <div className="col-6">
-                                            <Link to="/admin/contact/manage" className="btn btn-outline-warning w-100 py-3">
-                                                <i className="fas fa-envelope mb-2 d-block fs-4"></i>
-                                                Contact Messages
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <div className="ms-4">
+                            <p
+                                className="mb-1 text-secondary"
+                                style={{ fontSize: "15px" }}
+                            >
+                                Active Memberships
+                            </p>
 
-                    <div className="row g-4 mb-4">
-                        <div className="col-lg-12">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-header bg-white border-0">
-                                    <h5 className="mb-0">Statistics Overview</h5>
-                                </div>
-                                <div className="card-body" style={{ minHeight: 250, maxHeight: 300 }}>
-                                    <Bar data={data} options={options} height={220} />
-                                </div>
-                            </div>
+                            <h2
+                                className="fw-bold mb-0"
+                                style={{ color: "#0b1c49" }}
+                            >
+                                {membershipsCount}
+                            </h2>
                         </div>
                     </div>
                 </div>
-            )}
+            </div>
+
+            {/* Trainers */}
+            <div className="col-md-6 col-xl-3">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{
+                        borderRadius: "20px",
+                        transition: "0.4s",
+                        overflow: "hidden",
+                    }}
+                >
+                    <div className="card-body d-flex align-items-center p-4">
+                        <div
+                            className="d-flex justify-content-center align-items-center"
+                            style={{
+                                width: "75px",
+                                height: "75px",
+                                borderRadius: "18px",
+                                background:
+                                    "linear-gradient(135deg,#ff9100,#ffd54f)",
+                                color: "white",
+                                boxShadow: "0 10px 25px rgba(255,145,0,0.4)",
+                            }}
+                        >
+                            <i className="fas fa-chalkboard-teacher fa-2x"></i>
+                        </div>
+
+                        <div className="ms-4">
+                            <p
+                                className="mb-1 text-secondary"
+                                style={{ fontSize: "15px" }}
+                            >
+                                Total Trainers
+                            </p>
+
+                            <h2
+                                className="fw-bold mb-0"
+                                style={{ color: "#0b1c49" }}
+                            >
+                                {trainersCount}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Batches */}
+            <div className="col-md-6 col-xl-3">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{
+                        borderRadius: "20px",
+                        transition: "0.4s",
+                        overflow: "hidden",
+                    }}
+                >
+                    <div className="card-body d-flex align-items-center p-4">
+                        <div
+                            className="d-flex justify-content-center align-items-center"
+                            style={{
+                                width: "75px",
+                                height: "75px",
+                                borderRadius: "18px",
+                                background:
+                                    "linear-gradient(135deg,#00b0ff,#40c4ff)",
+                                color: "white",
+                                boxShadow: "0 10px 25px rgba(0,176,255,0.4)",
+                            }}
+                        >
+                            <i className="fas fa-layer-group fa-2x"></i>
+                        </div>
+
+                        <div className="ms-4">
+                            <p
+                                className="mb-1 text-secondary"
+                                style={{ fontSize: "15px" }}
+                            >
+                                Total Batches
+                            </p>
+
+                            <h2
+                                className="fw-bold mb-0"
+                                style={{ color: "#0b1c49" }}
+                            >
+                                {batchesCount}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* ACTIONS */}
+        <div className="row g-4 mb-4">
+            {/* QUICK ACTIONS */}
+            <div className="col-lg-6">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{ borderRadius: "22px" }}
+                >
+                    <div
+                        className="card-header border-0 text-white p-4"
+                        style={{
+                            background:
+                                "linear-gradient(135deg,#1a237e,#3949ab)",
+                            borderTopLeftRadius: "22px",
+                            borderTopRightRadius: "22px",
+                        }}
+                    >
+                        <h4 className="mb-0 fw-bold">Quick Actions</h4>
+                    </div>
+
+                    <div className="card-body p-4">
+                        <div className="row g-4">
+                            <div className="col-6">
+                                <Link
+                                    to="/admin/customers"
+                                    className="btn w-100 py-4 border-0"
+                                    style={{
+                                        borderRadius: "18px",
+                                        background: "#fff5f6",
+                                        transition: "0.3s",
+                                    }}
+                                >
+                                    <i className="fas fa-users d-block fs-2 mb-3 text-danger"></i>
+                                    <span className="fw-semibold text-dark">
+                                        Manage Customers
+                                    </span>
+                                </Link>
+                            </div>
+
+                            <div className="col-6">
+                                <Link
+                                    to="/admin/trainer/manage"
+                                    className="btn w-100 py-4 border-0"
+                                    style={{
+                                        borderRadius: "18px",
+                                        background: "#fff9e8",
+                                    }}
+                                >
+                                    <i className="fas fa-chalkboard-teacher d-block fs-2 mb-3 text-warning"></i>
+                                    <span className="fw-semibold text-dark">
+                                        Manage Trainers
+                                    </span>
+                                </Link>
+                            </div>
+
+                            <div className="col-6">
+                                <Link
+                                    to="/admin/batch/manage"
+                                    className="btn w-100 py-4 border-0"
+                                    style={{
+                                        borderRadius: "18px",
+                                        background: "#eefcff",
+                                    }}
+                                >
+                                    <i className="fas fa-layer-group d-block fs-2 mb-3 text-info"></i>
+                                    <span className="fw-semibold text-dark">
+                                        Manage Batches
+                                    </span>
+                                </Link>
+                            </div>
+
+                            <div className="col-6">
+                                <Link
+                                    to="/admin/requests/manage"
+                                    className="btn w-100 py-4 border-0"
+                                    style={{
+                                        borderRadius: "18px",
+                                        background: "#f1fff6",
+                                    }}
+                                >
+                                    <i className="fas fa-clipboard-list d-block fs-2 mb-3 text-success"></i>
+                                    <span className="fw-semibold text-dark">
+                                        View Requests
+                                    </span>
+                                </Link>
+                            </div>
+
+                            <div className="col-6">
+                                <Link
+                                    to="/admin/diets"
+                                    className="btn w-100 py-4 border-0"
+                                    style={{
+                                        borderRadius: "18px",
+                                        background: "#fff1f1",
+                                    }}
+                                >
+                                    <i className="fas fa-utensils d-block fs-2 mb-3 text-danger"></i>
+                                    <span className="fw-semibold text-dark">
+                                        View Diets
+                                    </span>
+                                </Link>
+                            </div>
+
+                            <div className="col-6">
+                                <Link
+                                    to="/admin/exercises"
+                                    className="btn w-100 py-4 border-0"
+                                    style={{
+                                        borderRadius: "18px",
+                                        background: "#f4f5ff",
+                                    }}
+                                >
+                                    <i className="fas fa-dumbbell d-block fs-2 mb-3 text-dark"></i>
+                                    <span className="fw-semibold text-dark">
+                                        View Exercises
+                                    </span>
+                                </Link>
+                            </div>
+
+                            <div className="col-12">
+                                <Link
+                                    to="/admin/ai-coach"
+                                    className="btn w-100 py-4 border-0"
+                                    style={{
+                                        borderRadius: "18px",
+                                        background:
+                                            "linear-gradient(135deg,#00c6ff,#0072ff)",
+                                        color: "white",
+                                        boxShadow:
+                                            "0 10px 30px rgba(0,114,255,0.3)",
+                                    }}
+                                >
+                                    <i className="fas fa-robot d-block fs-1 mb-3"></i>
+
+                                    <span
+                                        className="fw-bold"
+                                        style={{ fontSize: "18px" }}
+                                    >
+                                        AI Coach
+                                    </span>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* REPORTS */}
+            <div className="col-lg-6">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{ borderRadius: "22px" }}
+                >
+                    <div
+                        className="card-header border-0 text-white p-4"
+                        style={{
+                            background:
+                                "linear-gradient(135deg,#6a11cb,#2575fc)",
+                            borderTopLeftRadius: "22px",
+                            borderTopRightRadius: "22px",
+                        }}
+                    >
+                        <h4 className="mb-0 fw-bold">View & Reports</h4>
+                    </div>
+
+                    <div className="card-body p-4">
+                        <div className="row g-4">
+                            <div className="col-6">
+                                <Link
+                                    to="/admin/progress"
+                                    className="btn w-100 py-5 border-0"
+                                    style={{
+                                        borderRadius: "18px",
+                                        background: "#f5f7ff",
+                                    }}
+                                >
+                                    <i className="fas fa-chart-line d-block fs-1 mb-3 text-secondary"></i>
+
+                                    <span className="fw-semibold text-dark">
+                                        View Progress
+                                    </span>
+                                </Link>
+                            </div>
+
+                            <div className="col-6">
+                                <Link
+                                    to="/admin/contact/manage"
+                                    className="btn w-100 py-5 border-0"
+                                    style={{
+                                        borderRadius: "18px",
+                                        background: "#fff9e8",
+                                    }}
+                                >
+                                    <i className="fas fa-envelope d-block fs-1 mb-3 text-warning"></i>
+
+                                    <span className="fw-semibold text-dark">
+                                        Contact Messages
+                                    </span>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* CHART */}
+        <div className="row">
+            <div className="col-12">
+                <div
+                    className="card border-0 shadow-lg"
+                    style={{ borderRadius: "22px" }}
+                >
+                    <div
+                        className="card-header border-0 text-white p-4"
+                        style={{
+                            background:
+                                "linear-gradient(135deg,#141e30,#243b55)",
+                            borderTopLeftRadius: "22px",
+                            borderTopRightRadius: "22px",
+                        }}
+                    >
+                        <h4 className="mb-0 fw-bold">
+                            Statistics Overview
+                        </h4>
+                    </div>
+
+                    <div className="card-body p-4">
+                        <div style={{ minHeight: 300 }}>
+                            <Bar
+                                data={data}
+                                options={options}
+                                height={250}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+)}
         </>
     );
 }

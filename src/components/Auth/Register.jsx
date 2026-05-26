@@ -85,221 +85,271 @@ export default function Register() {
     }
     return (
         <>
-            {/* Modal Search Start */}
-            <div
-                className="modal fade"
-                id="searchModal"
-                tabIndex={-1}
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-            >
-                <div className="modal-dialog modal-fullscreen">
-                    <div className="modal-content rounded-0">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">
-                                Search by keyword
-                            </h5>
-                            <button
-                                type="button"
-                                className="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            />
-                        </div>
-                        <div className="modal-body d-flex align-items-center bg-primary">
-                            <div className="input-group w-75 mx-auto d-flex">
-                                <input
-                                    type="search"
-                                    className="form-control p-3"
-                                    placeholder="keywords"
-                                    aria-describedby="search-icon-1"
-                                />
-                                <span
-                                    id="search-icon-1"
-                                    className="btn bg-light border nput-group-text p-3"
-                                >
-                                    <i className="fa fa-search" />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* Modal Search End */}
-            {/* Header Start */}
-            <div className="container-fluid bg-breadcrumb">
-                <div className="container text-center py-5" style={{ maxWidth: 900 }}>
-                    <h4
-                        className="text-white display-4 mb-4 wow fadeInDown"
-                        data-wow-delay="0.1s"
-                    >
-                        Regsiter Page
-                    </h4>
-                    <ol
-                        className="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown"
-                        data-wow-delay="0.3s"
-                    >
-                        <li className="breadcrumb-item">
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li className="breadcrumb-item">
-                            <a href="#">Pages</a>
-                        </li>
-                        <li className="breadcrumb-item active text-primary">
-                            <Link to="/contact">Contact</Link>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-            {/* Header End */}
+
+
             {/* Contact Start */}
 
-            <div className="col-lg-6 offset-lg-3 wow fadeInRight" data-wow-delay="0.4s">
-                <div className="form-section bg-dark p-5 h-100">
-                    <h1 className="display-4 text-white mb-4 offset-4">Register</h1>
-                    <form>
-                        <div className="row g-4">
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="text"
-                                        className="form-control border-0"
-                                        id="name" value={name}
-                                        placeholder="Your Name"
-                                        onChange={(e) => setName(e.target.value)}
-                                    />
-                                    <label htmlFor="name">Enter Name</label>
-                                </div>
-                            </div>
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="text"
-                                        className="form-control border-0"
-                                        id="name" value={phone}
-                                        placeholder="Your Name"
-                                        onChange={(e) => setPhone(e.target.value)}
-                                    />
-                                    <label htmlFor="name">Enter Phone</label>
-                                </div>
-                            </div>
+            <div
+    className="offset-lg-2 col-lg-8 offset-lg-2 wow fadeInRight my-3"
+    data-wow-delay="0.4s"
+>
+    <div
+        className="form-section p-4 position-relative h-100"
+        style={{
+            background: "#07154A",
+            borderRadius: "20px",
+            boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
+            overflow: "hidden",
+        }}
+    >
+        <h1
+            className="text-white text-center mb-4"
+            style={{
+                fontWeight: "700",
+                fontSize: "45px",
+                letterSpacing: "1px",
+            }}
+        >
+            Register
+        </h1>
 
-                            <div className=" col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="email"
-                                        className="form-control border-0"
-                                        id="email" value={email}
-                                        placeholder="Project"
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                    <label htmlFor="project">Enter Email</label>
-                                </div>
-                            </div>
+        <form>
+            <div className="row g-3">
 
-                            <div className=" col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="password"
-                                        className="form-control border-0"
-                                        id="email" value={password}
-                                        placeholder="Project"
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                    <label htmlFor="project">Enter Password</label>
-                                </div>
-                            </div>
-                            <div className=" col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="number"
-                                        className="form-control border-0"
-                                        id="email" value={age}
-                                        placeholder="age"
-                                        onChange={(e) => setAge(e.target.value)}
-                                    />
-                                    <label htmlFor="project">Enter Age</label>
-                                </div>
-                            </div>
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
-                                    <select className="form-control" id="subject"
-                                        value={goal}
-                                        onChange={(e) => setGoal(e.target.value)}
-                                    >
-                                        <option value="">Select Goal</option>
-                                        <option value="Fat Loss">Fat Loss</option>
-                                        <option value="Muscle Gain">Muscle Gain</option>
-                                        <option value="Strength Training">Strength Training</option>
-                                        <option value="General Fitness">General Fitness</option>
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="text"
+                            className="form-control border-0"
+                            id="name"
+                            value={name}
+                            placeholder="Your Name"
+                            onChange={(e) => setName(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "10px",
+                                background: "#f4f4f4",
+                                fontSize: "16px",
+                            }}
+                        />
+                        <label htmlFor="name">Enter Name</label>
+                    </div>
+                </div>
 
-                                    </select>
-                                    <label htmlFor="subject">Enter Goal</label>
-                                </div>
-                            </div>
-                            <div className=" col-12">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="file"
-                                        className="form-control border-0"
-                                        id="email"
-                                        placeholder="Project"
-                                        onChange={(e) => setProfile(e.target.files[0])}
-                                    />
-                                    <label htmlFor="project">image</label>
-                                </div>
-                            </div>
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="text"
+                            className="form-control border-0"
+                            id="phone"
+                            value={phone}
+                            placeholder="Phone"
+                            onChange={(e) => setPhone(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "10px",
+                                background: "#f4f4f4",
+                                fontSize: "16px",
+                            }}
+                        />
+                        <label htmlFor="phone">Enter Phone</label>
+                    </div>
+                </div>
 
-                            <div className="col-12">
-                                <div className="form-floating form-section-col">
-                                    <select className="form-control" id="subject" value={gender} onChange={(e) =>
-                                        setGender(e.target.value)}
-                                    >
-                                        <option value="">Select Gender</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                    <label htmlFor="subject">Select Gender</label>
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <div className="form-floating form-section-col">
-                                    <textarea
-                                        type="text"
-                                        className="form-control"
-                                        id="subject"
-                                        placeholder="address" value={address}
-                                        onChange={(e) => setAddress(e.target.value)}
-                                    > </textarea>
-                                    <label htmlFor="subject">Address</label>
-                                </div>
-                            </div>
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="email"
+                            className="form-control border-0"
+                            id="email"
+                            value={email}
+                            placeholder="Email"
+                            onChange={(e) => setEmail(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "10px",
+                                background: "#f4f4f4",
+                                fontSize: "16px",
+                            }}
+                        />
+                        <label htmlFor="email">Enter Email</label>
+                    </div>
+                </div>
 
-                            <div className="col-12">
-                                <div className="form-check">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        defaultValue="#"
-                                        id="flexCheck"
-                                    />
-                                    <label className="form-check-label" htmlFor="flexCheck">
-                                        I agree with the site privacy policy
-                                    </label>
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <div className="form-section-col">
-                                    <button className="btn-primary w-100 py-3 px-5" type="submit" onClick={submit}>
-                                        Register
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div >
-            </div >
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="password"
+                            className="form-control border-0"
+                            id="password"
+                            value={password}
+                            placeholder="Password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "10px",
+                                background: "#f4f4f4",
+                                fontSize: "16px",
+                            }}
+                        />
+                        <label htmlFor="password">Enter Password</label>
+                    </div>
+                </div>
+
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="number"
+                            className="form-control border-0"
+                            id="age"
+                            value={age}
+                            placeholder="Age"
+                            onChange={(e) => setAge(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "10px",
+                                background: "#f4f4f4",
+                                fontSize: "16px",
+                            }}
+                        />
+                        <label htmlFor="age">Enter Age</label>
+                    </div>
+                </div>
+
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <select
+                            className="form-control border-0"
+                            id="goal"
+                            value={goal}
+                            onChange={(e) => setGoal(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "10px",
+                                background: "#f4f4f4",
+                                fontSize: "16px",
+                            }}
+                        >
+                            <option value="">Select Goal</option>
+                            <option value="Fat Loss">Fat Loss</option>
+                            <option value="Muscle Gain">Muscle Gain</option>
+                            <option value="Strength Training">Strength Training</option>
+                            <option value="General Fitness">General Fitness</option>
+                        </select>
+
+                        <label htmlFor="goal">Enter Goal</label>
+                    </div>
+                </div>
+
+                <div className="col-12">
+                    <input
+                        type="file"
+                        className="form-control border-0"
+                        id="file"
+                        placeholder="Upload Image"
+                        onChange={(e) => setProfile(e.target.files[0])}
+                        style={{
+                            height: "58px",
+                            borderRadius: "10px",
+                            background: "#f4f4f4",
+                            fontSize: "16px",
+                            paddingTop: "14px",
+                        }}
+                    />
+                </div>
+
+                <div className="col-12">
+                    <div className="form-floating">
+                        <select
+                            className="form-control border-0"
+                            id="gender"
+                            value={gender}
+                            onChange={(e) => setGender(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "10px",
+                                background: "#f4f4f4",
+                                fontSize: "16px",
+                            }}
+                        >
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                        <label htmlFor="gender">Select Gender</label>
+                    </div>
+                </div>
+
+                <div className="col-12">
+                    <div className="form-floating">
+                        <textarea
+                            type="text"
+                            className="form-control border-0"
+                            id="address"
+                            placeholder="Address"
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                            style={{
+                                height: "95px",
+                                borderRadius: "10px",
+                                background: "#f4f4f4",
+                                fontSize: "16px",
+                            }}
+                        ></textarea>
+
+                        <label htmlFor="address">Address</label>
+                    </div>
+                </div>
+
+                <div className="col-12">
+                    <div className="form-check text-white">
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            defaultValue="#"
+                            id="flexCheck"
+                        />
+                        <label className="form-check-label" htmlFor="flexCheck">
+                            I agree with the site privacy policy
+                        </label>
+                    </div>
+                </div>
+
+                <div className="col-12 mt-3">
+                    <button
+                        className="w-100 border-0"
+                        type="submit"
+                        onClick={submit}
+                        style={{
+                            background: "#e6004c",
+                            color: "#fff",
+                            height: "55px",
+                            borderRadius: "10px",
+                            fontSize: "18px",
+                            fontWeight: "600",
+                            letterSpacing: "1px",
+                            transition: "0.3s",
+                            boxShadow: "0 5px 20px rgba(230,0,76,0.4)",
+                        }}
+                        onMouseEnter={(e) => {
+                            e.target.style.transform = "translateY(-3px)";
+                            e.target.style.background = "#ff0055";
+                        }}
+                        onMouseLeave={(e) => {
+                            e.target.style.transform = "translateY(0px)";
+                            e.target.style.background = "#e6004c";
+                        }}
+                    >
+                        REGISTER
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
             {/* Contact End */}
         </>
 

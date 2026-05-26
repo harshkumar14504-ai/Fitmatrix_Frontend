@@ -42,10 +42,10 @@ export default function AddExcercise() {
         }
 
         let formData = {
-            excerciseName,
-            sets,
-            repetitions,
-            duration,
+            excerciseName:excerciseName,
+            sets:sets,
+            repetitions:repetitions,
+            duration:duration,
             trainerId,
             batchRegistrationId,
             memberId: myCustomers.find(r => r._id === batchRegistrationId)?.memberId?._id

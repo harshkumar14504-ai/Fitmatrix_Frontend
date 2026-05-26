@@ -75,138 +75,230 @@ export default function AddTrainer() {
             </div>
             {/* Header End */}
             {/* Service Start */}
-            <div className="col-lg-6 offset-lg-3 wow fadeInRight" data-wow-delay="0.4s">
-                <div className="form-section bg-dark p-5 h-100">
-                    <h1 className="display-5 text-white mb-4 text-center">Add Trainer</h1>
+    <div
+    className="offset-lg-2 col-lg-8 offset-lg-2 wow fadeInRight my-4"
+    data-wow-delay="0.4s"
+>
+    <div
+        className="form-section p-4 position-relative h-100"
+        style={{
+            background: "#07154A",
+            borderRadius: "22px",
+            boxShadow: "0 10px 38px rgba(0,0,0,0.5)",
+            overflow: "hidden",
+        }}
+    >
+        <h1
+            className="text-white text-center mb-4"
+            style={{
+                fontWeight: "700",
+                fontSize: "40px",
+                letterSpacing: "1px",
+            }}
+        >
+            Add Trainer
+        </h1>
 
-                    <form onSubmit={submit}>
-                        <div className="row g-4">
+        <form onSubmit={submit}>
+            <div className="row g-3">
 
-                            {/* Trainer Name */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="text"
-                                        className="form-control border-0"
-                                        id="name"
-                                        placeholder="Trainer Name"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                    />
-                                    <label htmlFor="name">Trainer Name</label>
-                                </div>
-                            </div>
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="number"
-                                        className="form-control border-0"
-                                        id="name"
-                                        placeholder="Trainer Contact"
-                                        value={phone}
-                                        onChange={(e) => setPhone(e.target.value)}
-                                    />
-                                    <label htmlFor="name">Trainer Contact</label>
-                                </div>
-                            </div>
-
-                       
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="email"
-                                        className="form-control border-0"
-                                        id="email"
-                                        placeholder="Trainer Email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                    <label htmlFor="email">Trainer Email</label>
-                                </div>
-                            </div>
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="password"
-                                        className="form-control border-0"
-                                        id="password"
-                                        placeholder="Trainer Email"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                    <label htmlFor="email">Password</label>
-                                </div>
-                            </div>
-
-                            {/* Experience */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="text"
-                                        className="form-control border-0"
-                                        id="experience"
-                                        placeholder="Experience"
-                                        value={experience}
-                                        onChange={(e) => setExperience(e.target.value)}
-                                    />
-                                    <label htmlFor="experience">Experience</label>
-                                </div>
-                            </div>
-
-                            {/* Phone */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="text"
-                                        className="form-control border-0"
-                                        id="phone"
-                                        placeholder="Phone"
-                                        value={speacilization}
-                                        onChange={(e) => setSpeacilization(e.target.value)}
-                                    />
-                                    <label htmlFor="phone">Speacilization</label>
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="file"
-                                        className="form-control border-0"
-                                        id="phone"
-                                        placeholder="Phone"
-                                        onChange={(e) => setImage(e.target.files[0])}
-                                    />
-                                    <label htmlFor="phone">Speacilization</label>
-                                </div>
-                            </div>
-
-                            {/* Address */}
-                            <div className="col-12">
-                                <div className="form-floating form-section-col">
-                                    <textarea
-                                        className="form-control"
-                                        id="address"
-                                        placeholder="Address"
-                                        value={about}
-                                        onChange={(e) => setAbout(e.target.value)}
-                                    ></textarea>
-                                    <label htmlFor="address">About</label>
-                                </div>
-                            </div>
-
-                            {/* Submit */}
-                            <div className="col-12">
-                                <div className="form-section-col">
-                                    <button className="btn-primary w-100 py-3 px-5" type="submit">
-                                        Add Now
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </form>
+                {/* Trainer Name */}
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="text"
+                            className="form-control border-0 px-3"
+                            id="name"
+                            placeholder="Trainer Name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "12px",
+                                background: "#f4f4f4",
+                                fontSize: "15px",
+                            }}
+                        />
+                        <label htmlFor="name">Trainer Name</label>
+                    </div>
                 </div>
+
+                {/* Trainer Contact */}
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="number"
+                            className="form-control border-0 px-3"
+                            id="phone"
+                            placeholder="Trainer Contact"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "12px",
+                                background: "#f4f4f4",
+                                fontSize: "15px",
+                            }}
+                        />
+                        <label htmlFor="phone">Trainer Contact</label>
+                    </div>
+                </div>
+
+                {/* Trainer Email */}
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="email"
+                            className="form-control border-0 px-3"
+                            id="email"
+                            placeholder="Trainer Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "12px",
+                                background: "#f4f4f4",
+                                fontSize: "15px",
+                            }}
+                        />
+                        <label htmlFor="email">Trainer Email</label>
+                    </div>
+                </div>
+
+                {/* Password */}
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="password"
+                            className="form-control border-0 px-3"
+                            id="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "12px",
+                                background: "#f4f4f4",
+                                fontSize: "15px",
+                            }}
+                        />
+                        <label htmlFor="password">Password</label>
+                    </div>
+                </div>
+
+                {/* Experience */}
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="text"
+                            className="form-control border-0 px-3"
+                            id="experience"
+                            placeholder="Experience"
+                            value={experience}
+                            onChange={(e) => setExperience(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "12px",
+                                background: "#f4f4f4",
+                                fontSize: "15px",
+                            }}
+                        />
+                        <label htmlFor="experience">Experience</label>
+                    </div>
+                </div>
+
+                {/* Specialization */}
+                <div className="col-lg-6">
+                    <div className="form-floating">
+                        <input
+                            type="text"
+                            className="form-control border-0 px-3"
+                            id="specialization"
+                            placeholder="Specialization"
+                            value={speacilization}
+                            onChange={(e) => setSpeacilization(e.target.value)}
+                            style={{
+                                height: "58px",
+                                borderRadius: "12px",
+                                background: "#f4f4f4",
+                                fontSize: "15px",
+                            }}
+                        />
+                        <label htmlFor="specialization">Specialization</label>
+                    </div>
+                </div>
+
+                {/* Upload Image */}
+                <div className="col-12">
+                    <input
+                        type="file"
+                        className="form-control border-0 px-3"
+                        id="image"
+                        onChange={(e) => setImage(e.target.files[0])}
+                        style={{
+                            height: "58px",
+                            borderRadius: "12px",
+                            background: "#f4f4f4",
+                            fontSize: "15px",
+                            paddingTop: "14px",
+                        }}
+                    />
+                </div>
+
+                {/* About */}
+                <div className="col-12">
+                    <div className="form-floating">
+                        <textarea
+                            className="form-control border-0 px-3 py-3"
+                            id="about"
+                            placeholder="About"
+                            value={about}
+                            onChange={(e) => setAbout(e.target.value)}
+                            style={{
+                                height: "110px",
+                                borderRadius: "12px",
+                                background: "#f4f4f4",
+                                fontSize: "15px",
+                            }}
+                        ></textarea>
+
+                        <label htmlFor="about">About Trainer</label>
+                    </div>
+                </div>
+
+                {/* Submit Button */}
+                <div className="col-12 mt-3">
+                    <button
+                        className="w-100 border-0"
+                        type="submit"
+                        style={{
+                            background: "#e6004c",
+                            color: "#fff",
+                            height: "54px",
+                            borderRadius: "12px",
+                            fontSize: "17px",
+                            fontWeight: "600",
+                            letterSpacing: "1px",
+                            transition: "0.3s",
+                            boxShadow: "0 5px 18px rgba(230,0,76,0.4)",
+                        }}
+                        onMouseEnter={(e) => {
+                            e.target.style.transform = "translateY(-2px)";
+                            e.target.style.background = "#ff0055";
+                        }}
+                        onMouseLeave={(e) => {
+                            e.target.style.transform = "translateY(0px)";
+                            e.target.style.background = "#e6004c";
+                        }}
+                    >
+                        ADD TRAINER
+                    </button>
+                </div>
+
             </div>
+        </form>
+    </div>
+</div>
 
             {/* Team End */}
         </>

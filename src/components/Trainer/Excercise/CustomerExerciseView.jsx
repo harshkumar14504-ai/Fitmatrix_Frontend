@@ -183,10 +183,10 @@ export default function CustomerExerciseView() {
             trainerId,
             memberId: customerId,
             batchRegistrationId: batchRegId,
-            excerciseName,
-            sets,
-            repetitions,
-            duration,
+            excerciseName:excerciseName,
+            sets:sets,
+            repetitions:repetitions,
+            duration:duration,
             weeklyExerciseChart
         }).then((res) => {
             if (res.data.success) {

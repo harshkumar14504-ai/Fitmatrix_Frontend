@@ -41,14 +41,14 @@ export default function AddBatch() {
         e.preventDefault()
 
         let formData = {
-            batchName,
-            startDate,
-            endDate,
-            time,
-            totalSlot,
-            fees,
-            trainerAllot,
-            sessionType
+            batchName: batchName,
+            startDate: startDate,
+            endDate: endDate,
+            time: time,
+            totalSlot: totalSlot,
+            fees: fees,
+            trainerAllot: trainerAllot,
+            sessionType: sessionType
         }
 
         addBatch(formData)
@@ -71,37 +71,72 @@ export default function AddBatch() {
             {/* Header */}
             <div className="container-fluid bg-primary py-5 mb-5 page-header">
                 <div className="container py-5 text-center">
-                    <h1 className="display-3 text-white">Add Batch</h1>
+                    <h1 className="display-3 text-white fw-bold">Add Batch</h1>
                 </div>
             </div>
 
-            <div className="col-lg-6 offset-lg-3">
-                <div className="form-section bg-dark p-5">
-                    <h2 className="text-white text-center mb-4">Add Batch</h2>
+            <div
+                className="offset-lg-2 col-lg-8 offset-lg-2 wow fadeInRight my-4"
+                data-wow-delay="0.4s"
+            >
+                <div
+                    className="form-section p-4 position-relative h-100"
+                    style={{
+                        background: "#07154A",
+                        borderRadius: "22px",
+                        boxShadow: "0 10px 38px rgba(0,0,0,0.5)",
+                        overflow: "hidden",
+                    }}
+                >
+                    <h1
+                        className="text-white text-center mb-4"
+                        style={{
+                            fontWeight: "700",
+                            fontSize: "40px",
+                            letterSpacing: "1px",
+                        }}
+                    >
+                        Add Batch
+                    </h1>
 
                     <form onSubmit={submit}>
-                        <div className="row g-4">
+                        <div className="row g-3">
 
                             {/* Batch Name */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
+                            <div className="col-lg-6">
+                                <div className="form-floating">
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className="form-control border-0 px-3"
+                                        id="batchName"
                                         placeholder="Batch Name"
                                         value={batchName}
                                         onChange={(e) => setBatchName(e.target.value)}
+                                        style={{
+                                            height: "58px",
+                                            borderRadius: "12px",
+                                            background: "#f4f4f4",
+                                            fontSize: "15px",
+                                        }}
                                     />
-                                    <label htmlFor="name">Batch Name</label>
+                                    <label htmlFor="batchName">Batch Name</label>
                                 </div>
                             </div>
+
                             {/* Trainer */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
+                            <div className="col-lg-6">
+                                <div className="form-floating">
                                     <select
-                                        className="form-control"
+                                        className="form-control border-0 px-3"
+                                        id="trainer"
                                         value={trainerAllot}
                                         onChange={(e) => setTrainerAllot(e.target.value)}
+                                        style={{
+                                            height: "58px",
+                                            borderRadius: "12px",
+                                            background: "#f4f4f4",
+                                            fontSize: "15px",
+                                        }}
                                     >
                                         <option value="">Select Trainer</option>
                                         {trainers.map((trainer) => (
@@ -110,93 +145,162 @@ export default function AddBatch() {
                                             </option>
                                         ))}
                                     </select>
-                                    <label htmlFor="name">Trainer Name</label>
+                                    <label htmlFor="trainer">Trainer Name</label>
                                 </div>
                             </div>
 
                             {/* Start Date */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
+                            <div className="col-lg-6">
+                                <div className="form-floating">
                                     <input
                                         type="date"
-                                        className="form-control"
+                                        className="form-control border-0 px-3"
+                                        id="startDate"
                                         value={startDate}
                                         onChange={(e) => setStartDate(e.target.value)}
+                                        style={{
+                                            height: "58px",
+                                            borderRadius: "12px",
+                                            background: "#f4f4f4",
+                                            fontSize: "15px",
+                                        }}
                                     />
-                                    <label htmlFor="name">Start Date</label>
+                                    <label htmlFor="startDate">Start Date</label>
                                 </div>
                             </div>
+
                             {/* End Date */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
+                            <div className="col-lg-6">
+                                <div className="form-floating">
                                     <input
                                         type="date"
-                                        className="form-control"
+                                        className="form-control border-0 px-3"
+                                        id="endDate"
                                         value={endDate}
                                         onChange={(e) => setEndDate(e.target.value)}
+                                        style={{
+                                            height: "58px",
+                                            borderRadius: "12px",
+                                            background: "#f4f4f4",
+                                            fontSize: "15px",
+                                        }}
                                     />
-                                    <label htmlFor="name">End Date</label>
+                                    <label htmlFor="endDate">End Date</label>
                                 </div>
                             </div>
+
                             {/* Time */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
+                            <div className="col-lg-6">
+                                <div className="form-floating">
                                     <input
                                         type="text"
-                                        className="form-control"
-                                        placeholder="Time (e.g. 7AM-8AM)"
+                                        className="form-control border-0 px-3"
+                                        id="time"
+                                        placeholder="Time"
                                         value={time}
                                         onChange={(e) => setTime(e.target.value)}
+                                        style={{
+                                            height: "58px",
+                                            borderRadius: "12px",
+                                            background: "#f4f4f4",
+                                            fontSize: "15px",
+                                        }}
                                     />
-                                    <label htmlFor="name">Timings</label>
+                                    <label htmlFor="time">Timings</label>
                                 </div>
                             </div>
 
                             {/* Total Slots */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
+                            <div className="col-lg-6">
+                                <div className="form-floating">
                                     <input
                                         type="number"
-                                        className="form-control"
+                                        className="form-control border-0 px-3"
+                                        id="slots"
                                         placeholder="Total Slots"
                                         value={totalSlot}
                                         onChange={(e) => setTotalSlot(e.target.value)}
+                                        style={{
+                                            height: "58px",
+                                            borderRadius: "12px",
+                                            background: "#f4f4f4",
+                                            fontSize: "15px",
+                                        }}
                                     />
-                                    <label htmlFor="name">Total slots</label>
+                                    <label htmlFor="slots">Total Slots</label>
                                 </div>
                             </div>
+
                             {/* Session Type */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
+                            <div className="col-lg-6">
+                                <div className="form-floating">
                                     <select
-                                        className="form-control"
+                                        className="form-control border-0 px-3"
+                                        id="session"
                                         value={sessionType}
                                         onChange={(e) => setSessionType(e.target.value)}
+                                        style={{
+                                            height: "58px",
+                                            borderRadius: "12px",
+                                            background: "#f4f4f4",
+                                            fontSize: "15px",
+                                        }}
                                     >
                                         <option value="">Select Session</option>
                                         <option value="Morning">Morning</option>
                                         <option value="Evening">Evening</option>
                                     </select>
-                                    <label htmlFor="name">Select Session</label>
+                                    <label htmlFor="session">Select Session</label>
                                 </div>
                             </div>
+
                             {/* Fees */}
-                            <div className="col-6">
-                                <div className="form-floating form-section-col">
+                            <div className="col-lg-6">
+                                <div className="form-floating">
                                     <input
                                         type="number"
-                                        className="form-control"
+                                        className="form-control border-0 px-3"
+                                        id="fees"
                                         placeholder="Fees"
                                         value={fees}
                                         onChange={(e) => setFees(e.target.value)}
+                                        style={{
+                                            height: "58px",
+                                            borderRadius: "12px",
+                                            background: "#f4f4f4",
+                                            fontSize: "15px",
+                                        }}
                                     />
-                                    <label htmlFor="name">Fees</label>
+                                    <label htmlFor="fees">Fees</label>
                                 </div>
                             </div>
-                            {/* Submit */}
-                            <div className="col-12">
-                                <button className="btn btn-primary w-100 py-3">
-                                    Add Batch
+
+                            {/* Submit Button */}
+                            <div className="col-12 mt-3">
+                                <button
+                                    className="w-100 border-0"
+                                    type="submit"
+                                    style={{
+                                        background: "#e6004c",
+                                        color: "#fff",
+                                        height: "54px",
+                                        borderRadius: "12px",
+                                        fontSize: "17px",
+                                        fontWeight: "600",
+                                        letterSpacing: "1px",
+                                        transition: "0.3s",
+                                        boxShadow: "0 5px 18px rgba(230,0,76,0.4)",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.target.style.transform = "translateY(-2px)";
+                                        e.target.style.background = "#ff0055";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.target.style.transform = "translateY(0px)";
+                                        e.target.style.background = "#e6004c";
+                                    }}
+                                >
+                                    ADD BATCH
                                 </button>
                             </div>
 

@@ -78,36 +78,56 @@ export default function Home() {
             </div>
             {/* Modal Search End */}
             {/* Carousel Start */}
-            <div className="header-carousel  overflow-hidden bg-dark">
-                <div className="header-carousel-item hero-section">
-                    <div className="hero-bg-half-2" />
-                    <div className="carousel-caption">
-                        <div className="container">
-                            <div className="row g-4 align-items-center">
-                                <div className="col-lg-7 animated fadeInLeft">
-                                    <div className="text-sm-center text-md-start">
-                                        <h4 className="text-primary text-uppercase fw-bold mb-3 fs-2">
-                                            Welcome to the FITLAB
-                                        </h4>
-                                        <h1 className="display-2 text-white mb-4">
-                                            Push yourself because no one else will!
-                                        </h1>
-                                        <p className="mb-5 fs-5">
-                                            FITLAB Gym is more than just a place to work out — it's a place where goals become reality. With modern equipment, expert trainers, and a motivating environment, we help you push beyond limits and transform into the best version of yourself. Your fitness journey starts here.
-                                        </p>
-                                        <div className="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                            <Link className="btn btn-dark py-3 px-4 px-md-5 me-2" to="/login">
-                                                {" "}
-                                                <span>JOIN NOW</span>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+     <div className="header-carousel overflow-hidden bg-dark">
+  <div className="header-carousel-item hero-section">
+    <div className="hero-bg-half-2" />
+
+    <div className="carousel-caption">
+      <div className="container">
+        <div className="row g-4 align-items-center">
+
+          <div className="col-lg-7 animated fadeInLeft">
+            <div className="text-sm-center text-md-start">
+
+              <h4 className="text-primary text-uppercase fw-bold mb-3">
+                Welcome to FitMatrix
+              </h4>
+
+              {/* FIXED HEADING */}
+              <h1 
+                className="text-white mb-3 fw-bold"
+                style={{
+                  fontSize: "clamp(28px, 4vw, 48px)",
+                  lineHeight: "1.2",
+                  maxWidth: "600px"
+                }}
+              >
+                Transform Your Body with FitMatrix
+              </h1>
+
+              {/* FIXED PARAGRAPH */}
+              <p 
+                className="mb-4"
+                style={{
+                  fontSize: "16px",
+                  maxWidth: "500px"
+                }}
+              >
+                FitMatrix helps you stay fit with expert trainers, modern equipment,
+                and personalized workout programs designed to achieve your fitness goals.
+              </p>
+
+              
+
             </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
             {/* Carousel End */}
             {/* About Start */}
             <div className="container-fluid about pt-5">
@@ -115,7 +135,7 @@ export default function Home() {
                     <div className="row g-5">
                         <div className="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
                             <div className="about-content h-100">
-                                <h4 className="text-primary">About FITLAB</h4>
+                                <h4 className="text-primary">About FIT</h4>
                                 <h1 className="display-4 text-white mb-4">
                                     We are the best at fulfilling your potential and achieving your
                                     goals.
@@ -158,7 +178,7 @@ export default function Home() {
                                                     <div className="d-flex align-items-center border-top border-bottom py-4">
                                                         <span className="fas fa-rocket text-white fa-4x me-4" />
                                                         <p className="mb-0">
-                                                            Our MISION at FitLab Gym is to inspire healthier lifestyles by providing expert training, modern equipment, and a supportive environment that helps individuals build strength, confidence, discipline, and achieve lasting fitness results. 💪
+                                                            Our MISION at FIT Gym is to inspire healthier lifestyles by providing expert training, modern equipment, and a supportive environment that helps individuals build strength, confidence, discipline, and achieve lasting fitness results. 💪
                                                         </p>
                                                     </div>
                                                 </div>
@@ -319,7 +339,7 @@ export default function Home() {
                             Affordable Membership,
                             <br />
 
-                            Train Smart. Train Strong. Train at FitLab. 
+                            Train Smart. Train Strong. Train at FIT. 
                         </p>
                     </div>
                     <br />
@@ -443,7 +463,7 @@ export default function Home() {
                         <h4 className="text-primary"> Our Courses</h4>
                         <h1 className="display-4 text-white mb-4">Out Our Highlights Below</h1>
                         <p className="text-white mb-0">
-                            At FitLab, our courses are designed to help you build strength, improve endurance, and transform your lifestyle. From cardio and strength training to personalized workout plans, our expert trainers guide you every step of the way. Whether you're a beginner or experienced, our programs help you achieve real fitness results.
+                            At FIT, our courses are designed to help you build strength, improve endurance, and transform your lifestyle. From cardio and strength training to personalized workout plans, our expert trainers guide you every step of the way. Whether you're a beginner or experienced, our programs help you achieve real fitness results.
                         </p>
                     </div>
                     <div className="row gy-4 gx-0 justify-content-center">
@@ -728,7 +748,7 @@ export default function Home() {
                         <h4 className="text-primary">Our Trainer</h4>
                         <h1 className="display-4 mb-4">Meet Our Amazing Team</h1>
                         <p className="mb-0">
-                            Our team at FitLab is made up of passionate and certified fitness professionals dedicated to helping you reach your goals. With expertise in strength training, cardio, and nutrition guidance, our trainers provide the motivation, support, and knowledge you need to stay consistent, train smarter, and achieve lasting fitness results
+                            Our team at FIT is made up of passionate and certified fitness professionals dedicated to helping you reach your goals. With expertise in strength training, cardio, and nutrition guidance, our trainers provide the motivation, support, and knowledge you need to stay consistent, train smarter, and achieve lasting fitness results
                         </p>
                     </div>
                     <div className="row gy-5 gy-lg-4 gx-4">
@@ -891,7 +911,7 @@ export default function Home() {
                                 />
                             </div>
                             <p className="fs-4 text-white mb-4">
-                                "Joining FitLab Gym was the best decision for my fitness journey. The trainers are supportive, the equipment is modern, and the environment keeps me motivated every day."
+                                "Joining FIT Gym was the best decision for my fitness journey. The trainers are supportive, the equipment is modern, and the environment keeps me motivated every day."
                             </p>
                             <div className="d-block">
                                 <h4 className="text-white">Client Name</h4>
@@ -915,7 +935,7 @@ export default function Home() {
                                 />
                             </div>
                             <p className="fs-4 text-white mb-4">
-                                "FitLab Gym helped me stay consistent and achieve my fitness goals. The trainers guide you properly and the workouts are really effective."
+                                "FIT Gym helped me stay consistent and achieve my fitness goals. The trainers guide you properly and the workouts are really effective."
                             </p>
                             <div className="d-block">
                                 <h4 className="text-white">Client Name</h4>
@@ -939,7 +959,7 @@ export default function Home() {
                                 />
                             </div>
                             <p className="fs-4 text-white mb-4">
-                                "Amazing gym with great trainers and a motivating atmosphere. FitLab helped me become stronger, healthier, and more confident."
+                                "Amazing gym with great trainers and a motivating atmosphere. FIT helped me become stronger, healthier, and more confident."
                             </p>
 
                         </div>
@@ -958,7 +978,7 @@ export default function Home() {
                     <div className="text-center mx-auto pb-5" style={{ maxWidth: 800 }}>
                         <h4 className="text-primary text-uppercase fw-bold">Membership Plans</h4>
                         <div style={{ width: 40, height: 3, background: "#c0392b", margin: "10px auto 16px" }} />
-                        <h1 className="display-4 mb-3">FITLAB Membership Fee Packages</h1>
+                        <h1 className="display-4 mb-3">FIT Membership Fee Packages</h1>
                         <p className="mb-0 fs-5">
                             Designed by the world's best industry experts to help you get the best possible results.
                             Find a comprehensive fitness plan, for free. Ready... Set... Sweat!

@@ -85,76 +85,149 @@ export default function ManageContact() {
         <>
 
             {/* Reply Modal */}
-            <Modal
-                isOpen={modalIsOpen}
+           <Modal
+    isOpen={modalIsOpen}
+    onRequestClose={closeModal}
+    style={{
+        overlay: {
+            backgroundColor: "rgba(0,0,0,0.65)",
+            backdropFilter: "blur(6px)",
+            zIndex: 999,
+        },
+        content: {
+            maxWidth: "700px",
+            width: "90%",
+            margin: "auto",
+            inset: "50% auto auto 50%",
+            transform: "translate(-50%, -50%)",
+            border: "none",
+            borderRadius: "24px",
+            padding: "0",
+            overflow: "hidden",
+            background: "transparent",
+        },
+    }}
+    contentLabel="Reply Modal"
+>
+    <div
+        className="position-relative"
+        style={{
+            background: "#07154A", // same old dark blue
+            borderRadius: "24px",
+            padding: "50px 45px",
+            boxShadow: "0 20px 60px rgba(0,0,0,0.45)",
+            border: "1px solid rgba(255,255,255,0.08)",
+        }}
+    >
 
-                onRequestClose={closeModal}
-                style={modalStyles}
-                contentLabel="Example Modal"
+        {/* Close Button */}
+        <button
+            onClick={closeModal}
+            type="button"
+            style={{
+                position: "absolute",
+                top: "18px",
+                right: "20px",
+                background: "rgba(255,255,255,0.1)",
+                border: "none",
+                width: "38px",
+                height: "38px",
+                borderRadius: "50%",
+                color: "#fff",
+                fontSize: "18px",
+                cursor: "pointer",
+                transition: "0.3s",
+            }}
+        >
+            ✕
+        </button>
+
+        {/* Heading */}
+        <div className="text-center mb-5">
+            <h1
+                style={{
+                    color: "#fff",
+                    fontWeight: "800",
+                    fontSize: "48px",
+                    letterSpacing: "1px",
+                    marginBottom: "10px",
+                }}
             >
-                <div className="form-section bg-dark p-5 h-100">
-                    <h1 className="display-4 text-white mb-4">Reply Customer Query</h1>
-                    <form onSubmit={submit}>
-                        <div className="row g-4">
-                            <div className=" col-12">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="text"
-                                        className="form-control border-0"
-                                        id="email"
-                                        value={reply}
-                                        placeholder="Enter Reply"
-                                        onChange={(e) => setReply(e.target.value)}
+                Reply Customer Query
+            </h1>
 
-                                    />
-                                    <label htmlFor="project">Enter Reply</label>
-                                </div>
-                            </div>
-                            <div className="row py-2 ">
-                                <div className="col-md d-flex gap-3">
-                                    <button className="btn-primary" type="submit" >
-                                        Submit
-                                    </button>
-                                    <div className="col-md">
-                                        <button className="btn-primary" type="button" onClick={closeModal} >
-                                            CANCEL
-                                        </button>
-                                    </div>
-                                </div>
+            <p
+                style={{
+                    color: "rgba(255,255,255,0.7)",
+                    fontSize: "16px",
+                    margin: 0,
+                }}
+            >
+                Send response to customer professionally
+            </p>
+        </div>
 
-                            </div>
+        <form onSubmit={submit}>
+            <div className="mb-4">
 
-                        </div>
-                    </form>
-                </div>
-            </Modal>
+                <label
+                    className="mb-2"
+                    style={{
+                        color: "#fff",
+                        fontWeight: "600",
+                        fontSize: "15px",
+                    }}
+                >
+                    Enter Reply
+                </label>
+
+                <textarea
+                    className="form-control"
+                    rows="5"
+                    value={reply}
+                    placeholder="Type your reply here..."
+                    onChange={(e) => setReply(e.target.value)}
+                    style={{
+                        borderRadius: "16px",
+                        border: "1px solid rgba(255,255,255,0.12)",
+                        background: "#ffffff",
+                        color: "#000",
+                        padding: "18px",
+                        fontSize: "16px",
+                        resize: "none",
+                        boxShadow: "none",
+                    }}
+                />
+            </div>
+
+            {/* Buttons */}
+           <div className="d-grid mt-4">
+    <button
+        type="submit"
+        style={{
+            width: "100%",
+            padding: "14px 30px",
+            borderRadius: "12px",
+            border: "none",
+            background: "#ff0055",
+            color: "#fff",
+            fontWeight: "700",
+            boxShadow: "0 8px 25px rgba(255,0,85,0.35)",
+            transition: "0.3s",
+            fontSize: "16px",
+        }}
+    >
+        Submit Reply
+    </button>
+</div>
+        </form>
+    </div>
+</Modal>
             {/* End Reply Modal */}
 
 
             {/* Header Start */}
-            <div className="container-fluid bg-breadcrumb">
-                <div className="container text-center py-5" style={{ maxWidth: 900 }}>
-                    <h4
-                        className="text-white display-4 mb-4 wow fadeInDown"
-                        data-wow-delay="0.1s"
-                    >
-                        Contact
-                    </h4>
-                    <ol
-                        className="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown"
-                        data-wow-delay="0.3s"
-                    >
-                        <li className="breadcrumb-item">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li className="breadcrumb-item">
-                            <a href="#">Pages</a>
-                        </li>
-                        <li className="breadcrumb-item active text-primary">Contact</li>
-                    </ol>
-                </div>
-            </div>
-            {/* Header End */}
+           
             {/* Team start */}
             {/* <RingLoader
                 color="#eb0c1b"
@@ -163,75 +236,214 @@ export default function ManageContact() {
                 size={100}
             /> */}
 
-            <div className="container-fluid">
+           <div className="container-fluid py-3">
 
-                <div className="row my-2">
-                    <div className="col-md h4">
-                        Customers
-                    </div>
-                </div>
-                <div className="table-responsive">
-                    <table className="table table-bordered text-dark">
-                        <thead className="table-light">
-                            <tr>
-                                <th>Sr.no</th>
-                                <th>Name</th>
-                                <th>Contact</th>
-                                <th className="d-none d-md-table-cell">Email</th>
-                                <th className="d-none d-lg-table-cell">Subject</th>
-                                <th className="d-none d-lg-table-cell">Message</th>
-                                <th className="d-none d-xl-table-cell">Reply</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                contacts.map((c, index) => (
-                                    <tr key={c._id || index}>
-                                        <th scope="row">{index + 1}</th>
+    {/* Heading */}
+    <div className="row my-2 align-items-center">
+        <div className="col-md h4 fw-bold text-dark">
+            Customers
+        </div>
+    </div>
 
-                                        <td>{c.name}</td>
+    {/* Responsive Table */}
+    <div
+        className="table-responsive mt-4 mx-auto"
+        style={{
+            maxWidth: "1400px",
+            padding: "0 10px"
+        }}
+    >
 
-                                        <td>{c.phone}</td>
+        <table
+            className="table align-middle"
+            style={{
+                borderCollapse: "separate",
+                borderSpacing: "0 12px",
+                fontSize: "14.5px",
+                width: "100%"
+            }}
+        >
 
-                                        <td className="d-none d-md-table-cell">
-                                            {c.email}
-                                        </td>
+            {/* Table Head */}
+            <thead>
+                <tr
+                    style={{
+                        background: "#1e293b",
+                        color: "#f1f5f9",
+                        fontSize: "13.5px"
+                    }}
+                >
+                    <th style={{ padding: "14px 16px" }}>Sr.no</th>
+                    <th style={{ padding: "14px 16px" }}>Name</th>
+                    <th style={{ padding: "14px 16px" }}>Contact</th>
 
-                                        <td className="d-none d-lg-table-cell">
-                                            {c.subject}
-                                        </td>
+                    <th
+                        className="d-none d-md-table-cell"
+                        style={{ padding: "14px 16px" }}
+                    >
+                        Email
+                    </th>
 
-                                        <td className="d-none d-lg-table-cell text-wrap" style={{ maxWidth: "200px" }}>
-                                            {c.message}
-                                        </td>
+                    <th
+                        className="d-none d-lg-table-cell"
+                        style={{ padding: "14px 16px" }}
+                    >
+                        Subject
+                    </th>
 
-                                        <td className="d-none d-xl-table-cell text-wrap" style={{ maxWidth: "200px" }}>
-                                            {c.reply || "-"}
-                                        </td>
+                    <th
+                        className="d-none d-lg-table-cell"
+                        style={{ padding: "14px 16px" }}
+                    >
+                        Message
+                    </th>
 
-                                        <td>
-                                            {c.status}
-                                        </td>
-                                        <td>
+                    <th
+                        className="d-none d-xl-table-cell"
+                        style={{ padding: "14px 16px" }}
+                    >
+                        Reply
+                    </th>
 
-                                            <div>
-                                                <button className="btn btn-sm btn-primary" onClick={() => {
-                                                    openModal(c._id)
-                                                }}>
-                                                    Reply
-                                                </button>
-                                            </div>
+                    <th style={{ padding: "14px 16px" }}>Status</th>
+                    <th style={{ padding: "14px 16px" }}>Action</th>
+                </tr>
+            </thead>
 
-                                        </td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            {/* Table Body */}
+            <tbody>
+                {
+                    contacts.map((c, index) => (
+                        <tr
+                            key={c._id || index}
+                            style={{
+                                background: index % 2 === 0 ? "#ffffff" : "#f1f5f9",
+                                borderRadius: "10px",
+                                transition: "all 0.2s ease",
+                                boxShadow: "0 2px 6px rgba(0,0,0,0.05)"
+                            }}
+                        >
+
+                            {/* Sr No */}
+                            <td
+                                style={{ padding: "14px 16px" }}
+                                className="fw-semibold text-muted"
+                            >
+                                {index + 1}
+                            </td>
+
+                            {/* Name */}
+                            <td
+                                style={{
+                                    padding: "14px 16px",
+                                    fontWeight: "600"
+                                }}
+                            >
+                                {c.name}
+                            </td>
+
+                            {/* Contact */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {c.phone}
+                            </td>
+
+                            {/* Email */}
+                            <td
+                                className="d-none d-md-table-cell"
+                                style={{
+                                    padding: "14px 16px",
+                                    maxWidth: "180px",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap"
+                                }}
+                            >
+                                {c.email}
+                            </td>
+
+                            {/* Subject */}
+                            <td
+                                className="d-none d-lg-table-cell"
+                                style={{
+                                    padding: "14px 16px",
+                                    fontWeight: "500"
+                                }}
+                            >
+                                {c.subject}
+                            </td>
+
+                            {/* Message */}
+                            <td
+                                className="d-none d-lg-table-cell text-wrap"
+                                style={{
+                                    padding: "14px 16px",
+                                    maxWidth: "220px",
+                                    lineHeight: "1.5"
+                                }}
+                            >
+                                {c.message}
+                            </td>
+
+                            {/* Reply */}
+                            <td
+                                className="d-none d-xl-table-cell text-wrap"
+                                style={{
+                                    padding: "14px 16px",
+                                    maxWidth: "220px",
+                                    lineHeight: "1.5"
+                                }}
+                            >
+                                {c.reply || "-"}
+                            </td>
+
+                            {/* Status */}
+                            <td style={{ padding: "14px 16px" }}>
+                                <span
+                                    style={{
+                                        background:
+                                            c.status === "Replied"
+                                                ? "#dcfce7"
+                                                : "#fef3c7",
+                                        color:
+                                            c.status === "Replied"
+                                                ? "#166534"
+                                                : "#92400e",
+                                        padding: "6px 12px",
+                                        borderRadius: "999px",
+                                        fontSize: "12px",
+                                        fontWeight: "600"
+                                    }}
+                                >
+                                    {c.status}
+                                </span>
+                            </td>
+
+                            {/* Action */}
+                            <td style={{ padding: "14px 16px" }}>
+                                <button
+                                    className="btn btn-sm rounded-pill px-3 py-2"
+                                    onClick={() => {
+                                        openModal(c._id)
+                                    }}
+                                    style={{
+                                        background: "#2563eb",
+                                        color: "#fff",
+                                        border: "none",
+                                        fontWeight: "600"
+                                    }}
+                                >
+                                    Reply
+                                </button>
+                            </td>
+
+                        </tr>
+                    ))
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
 
             {/* Team End */}
         </>

@@ -71,7 +71,7 @@ export default function AdminHeader() {
                     color: "white",
                   }}
                 >
-                  FITLAB
+                  FIT-MATRIX
                 </span>
               </h1>
               {/* <img src="img/logo.png" alt="Logo"> */}
@@ -91,7 +91,7 @@ export default function AdminHeader() {
                         className="text-muted small"
                       >
                         <i className="fas fa-envelope text-primary me-2" />
-                        Fitlab@gmail.com
+                        FitMatrix@gmail.com
                       </a>
                     </div>
                     <div className="pe-0">

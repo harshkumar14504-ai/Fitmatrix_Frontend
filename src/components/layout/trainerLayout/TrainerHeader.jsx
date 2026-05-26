@@ -20,7 +20,7 @@ export default function TrainerHeader() {
                         <a href="#" className="navbar-brand" style={{ height: 125 }}>
                             <h1 className="mb-0" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '10px' }}>
                                 <i className="fas fa-dumbbell text-danger" />
-                                <span style={{ fontWeight: 900, letterSpacing: '2px', color: 'white' }}>FITLAB</span>
+                                <span style={{ fontWeight: 900, letterSpacing: '2px', color: 'white' }}>FIT-MATRIX</span>
                             </h1>
                             {/* <img src="img/logo.png" alt="Logo"> */}
                         </a>
@@ -39,7 +39,7 @@ export default function TrainerHeader() {
                                                 className="text-muted small"
                                             >
                                                 <i className="fas fa-envelope text-primary me-2" />
-                                                Fitlab@gmail.com
+                                                FitMatrix@gmail.com
                                             </a>
                                         </div>
                                         <div className="pe-0">
@@ -63,7 +63,7 @@ export default function TrainerHeader() {
                                 <a href="#" className="navbar-brand-2">
                                     <h1 className="mb-0" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                         <i className="fas fa-dumbbell text-danger" />
-                                        <span style={{ fontWeight: 900, letterSpacing: '2px', color: 'white' }}>FITLAB</span>
+                                        <span style={{ fontWeight: 900, letterSpacing: '2px', color: 'white' }}>FITMATRIX</span>
                                     </h1>
                                     {/* <img src="img/logo.png" alt="Logo"> */}
                                 </a>

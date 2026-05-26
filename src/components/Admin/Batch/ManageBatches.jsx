@@ -78,30 +78,7 @@ export default function ManageBatches() {
 
     return (
         <>
-            {/* Header Start */}
-            <div className="container-fluid bg-breadcrumb">
-                <div className="container text-center py-5" style={{ maxWidth: 900 }}>
-                    <h4
-                        className="text-white display-4 mb-4 wow fadeInDown"
-                        data-wow-delay="0.1s"
-                    >
-                        Manage Batches
-                    </h4>
-                    <ol
-                        className="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown"
-                        data-wow-delay="0.3s"
-                    >
-                        <li className="breadcrumb-item">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li className="breadcrumb-item">
-                            <a href="#">Pages</a>
-                        </li>
-                        <li className="breadcrumb-item active text-primary">Contact</li>
-                    </ol>
-                </div>
-            </div>
-            {/* Header End */}
+           
             {/* Team start */}
             <RingLoader
                 color={color}
@@ -110,87 +87,194 @@ export default function ManageBatches() {
                 size={100}
             />
 
-            <div className="container-xxl">
-                <div className="container">
-                    <div className="row my-2">
-                        <div className="col-md h4">
-                            Manage Batches
-                        </div>
-                        <div className="col-md text-end">
-                            <Link to="/admin/batch/add">
-                                <button className="btn btn-sm btn-primary rounded rounded-pill" type="submit">
-                                    + Add New Batch
+           <div className="container-fluid py-3">
+
+    {/* Heading */}
+    <div className="row my-2 align-items-center">
+        <div className="col-md h4 fw-bold text-dark">
+            Manage Batches
+        </div>
+
+        <div className="col-md text-end">
+            <Link to="/admin/batch/add">
+                <button
+                    className="btn btn-sm rounded-pill px-4 py-2"
+                    type="submit"
+                    style={{
+                        background: "#2563eb",
+                        color: "#fff",
+                        border: "none",
+                        fontWeight: "600"
+                    }}
+                >
+                    + Add New Batch
+                </button>
+            </Link>
+        </div>
+    </div>
+
+    {/* Responsive Table */}
+    <div
+        className="table-responsive mt-4 mx-auto"
+        style={{
+            maxWidth: "1400px",
+            padding: "0 10px"
+        }}
+    >
+
+        <table
+            className="table align-middle"
+            style={{
+                borderCollapse: "separate",
+                borderSpacing: "0 12px",
+                fontSize: "14.5px",
+                width: "100%"
+            }}
+        >
+
+            {/* Table Head */}
+            <thead>
+                <tr
+                    style={{
+                        background: "#1e293b",
+                        color: "#f1f5f9",
+                        fontSize: "13.5px"
+                    }}
+                >
+                    <th style={{ padding: "14px 16px" }}>Sr.no</th>
+                    <th style={{ padding: "14px 16px" }}>Batch Name</th>
+                    <th style={{ padding: "14px 16px" }}>Start Date</th>
+                    <th style={{ padding: "14px 16px" }}>End Date</th>
+                    <th style={{ padding: "14px 16px" }}>Total Slots</th>
+                    <th style={{ padding: "14px 16px" }}>Session Type</th>
+                    <th style={{ padding: "14px 16px" }}>Fees</th>
+                    <th style={{ padding: "14px 16px" }}>Trainer Allot</th>
+                    <th style={{ padding: "14px 16px" }}>Status</th>
+                </tr>
+            </thead>
+
+            {/* Table Body */}
+            <tbody>
+                {
+                    Batch.map((Batch, index) => (
+                        <tr
+                            key={Batch._id}
+                            style={{
+                                background: index % 2 === 0 ? "#ffffff" : "#f1f5f9",
+                                borderRadius: "10px",
+                                transition: "all 0.2s ease",
+                                boxShadow: "0 2px 6px rgba(0,0,0,0.05)"
+                            }}
+                        >
+
+                            {/* Sr No */}
+                            <td
+                                style={{ padding: "14px 16px" }}
+                                className="fw-semibold text-muted"
+                            >
+                                {index + 1}
+                            </td>
+
+                            {/* Batch Name */}
+                            <td
+                                style={{
+                                    padding: "14px 16px",
+                                    fontWeight: "600"
+                                }}
+                            >
+                                {Batch.batchName}
+                            </td>
+
+                            {/* Start Date */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Batch.startDate.substr(0, 10)}
+                            </td>
+
+                            {/* End Date */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Batch.endDate.substr(0, 10)}
+                            </td>
+
+                            {/* Total Slots */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Batch.totalSlots}
+                            </td>
+
+                            {/* Session Type */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Batch.sessionType}
+                            </td>
+
+                            {/* Fees */}
+                            <td style={{ padding: "14px 16px" }}>
+                                ₹ {Batch.fees}
+                            </td>
+
+                            {/* Trainer */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Batch.trainerAllot.name}
+                            </td>
+
+                            {/* Status + Actions */}
+                            <td style={{ padding: "16px 18px" }}>
+
+                                <span
+                                    className="badge rounded-pill me-2"
+                                    style={{
+                                        background:
+                                            Batch.status === "Active"
+                                                ? "#dcfce7"
+                                                : "#fee2e2",
+                                        color:
+                                            Batch.status === "Active"
+                                                ? "#166534"
+                                                : "#991b1b",
+                                        padding: "8px 12px",
+                                        fontSize: "12px",
+                                        fontWeight: "600"
+                                    }}
+                                >
+                                    {Batch.status}
+                                </span>
+
+                                <Link
+                                    to={`/admin/batch/update/${Batch._id}`}
+                                    style={{
+                                        color: "#2563eb",
+                                        marginRight: "12px",
+                                        fontSize: "17px",
+                                        padding: "2px",
+                                        borderRadius: "6px"
+                                    }}
+                                >
+                                    <i className="bi bi-pencil"></i>
+                                </Link>
+
+                                <button
+                                    className="border-0 bg-transparent"
+                                    onClick={() => {
+                                        deleteBatchFun(Batch._id)
+                                    }}
+                                    style={{
+                                        color: "#ef4444",
+                                        fontSize: "17px",
+                                        padding: "8px",
+                                        borderRadius: "6px"
+                                    }}
+                                >
+                                    <i className="bi bi-trash"></i>
                                 </button>
-                            </Link>
-                        </div>
-                    </div>
-                    <table className="table table-bordered text-dark">
-                        <thead>
-                            <tr>
-                                <th scope="col">Sr.no</th>
-                                <th scope="col">Batch Name</th>
-                                <th scope="col">Start Date </th>
-                                <th scope="col">End Date</th>
-                                <th scope="col">Total Slots</th>
-                                <th scope="col">Session Type</th>
-                                <th scope="col">Fees</th>
-                                <th scope="col">TrainerAllot</th>
-                                <th scope="col">Status</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                Batch.map((Batch, index) => (
-                                    <tr>
-                                        <th scope="row">
-                                            {index + 1}
-                                        </th>
-                                        <td scope="row">
-                                            {Batch.batchName}
-                                        </td>
-                                        <td scope="row">
-                                            {Batch.startDate.substr(0,10)}
-                                        </td>
-                                        <td scope="row">
-                                            {Batch.endDate.substr(0,10)}
-                                        </td>
-                                        <td scope="row">
-                                            {Batch.totalSlots}
-                                        </td>
-                                        <td scope="row">
-                                            {Batch.sessionType}
-                                        </td>
-                                         <td scope="row">
-                                            {Batch.fees}
-                                        </td>
-                                         <td scope="row">
-                                            {Batch.trainerAllot.name}
-                                        </td>
-                                        <td scope="row">
-                                            {Batch.status}
+                            </td>
 
-                                            <Link to={`/admin/batch/update/${Batch._id}`}>
-                                                <button className="btn btn-sm text-primary">
-                                                    <i className="bi bi-pencil-square"></i>
-                                                </button>
-                                            </Link>
-                                            <button className="btn text-danger" onClick={() => {
-                                                deleteBatchFun(Batch._id)
-                                            }}>
+                        </tr>
+                    ))
+                }
+            </tbody>
 
-                                                <i class="bi bi-trash-fill"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
-
-
-                </div>
-            </div>
+        </table>
+    </div>
+</div>
 
             {/* Team End */}
         </>

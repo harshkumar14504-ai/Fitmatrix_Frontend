@@ -52,88 +52,117 @@ const BMICalculator = () => {
   };
 
   return (
-    <div className="bmi-container">
-      <div className="bmi-card">
-        <h2>BMI Calculator</h2>
-        <p className="subtitle">Calculate Your Body Mass Index</p>
+ <div className="bmi-container">
+  <div className="bmi-card">
 
-        <div className="input-group">
-          <label>Height</label>
-          <div className="input-row">
-            <input
-              type="number"
-              placeholder="Enter height"
-              value={height}
-              onChange={(e) => setHeight(e.target.value)}
-            />
-            <select value={heightUnit} onChange={(e) => setHeightUnit(e.target.value)}>
-              <option value="cm">CM</option>
-              <option value="m">M</option>
-              <option value="ft">FT</option>
-            </select>
-          </div>
-        </div>
+    {/* Background Glow */}
+    <div className="glow glow-1"></div>
+    <div className="glow glow-2"></div>
 
-        <div className="input-group">
-          <label>Weight</label>
-          <div className="input-row">
-            <input
-              type="number"
-              placeholder="Enter weight"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
-            />
-            <select value={weightUnit} onChange={(e) => setWeightUnit(e.target.value)}>
-              <option value="kg">KG</option>
-              <option value="lbs">LBS</option>
-            </select>
-          </div>
-        </div>
+    <h2 className="title">BMI Calculator</h2>
+    <p className="subtitle">Calculate Your Body Mass Index</p>
 
-        <button className="calculate-btn" onClick={calculateBMI}>
-          Calculate BMI
-        </button>
+    <div className="input-group">
+      <label>Height</label>
 
-        {bmi && (
-          <div className="result-container">
-            <div className="bmi-result" style={{ borderColor: getBmiColor() }}>
-              <div className="bmi-value" style={{ color: getBmiColor() }}>
-                {bmi}
-              </div>
-              <div className="bmi-category" style={{ backgroundColor: getBmiColor() }}>
-                {category}
-              </div>
-            </div>
+      <div className="input-row">
+        <input
+          type="number"
+          placeholder="Enter height"
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
+        />
 
-            <div className="bmi-chart">
-              <div className="chart-bar">
-                <div className="underweight">Underweight</div>
-                <div className="normal">Normal</div>
-                <div className="overweight">Overweight</div>
-                <div className="obese">Obese</div>
-              </div>
-              <div className="chart-scale">
-                <span>0</span>
-                <span>18.5</span>
-                <span>25</span>
-                <span>30</span>
-                <span>40+</span>
-              </div>
-            </div>
-
-            <div className="bmi-info">
-              <h3>BMI Categories:</h3>
-              <ul>
-                <li><strong>Underweight:</strong> BMI less than 18.5</li>
-                <li><strong>Normal Weight:</strong> BMI 18.5 - 24.9</li>
-                <li><strong>Overweight:</strong> BMI 25 - 29.9</li>
-                <li><strong>Obese:</strong> BMI 30 and above</li>
-              </ul>
-            </div>
-          </div>
-        )}
+        <select
+          value={heightUnit}
+          onChange={(e) => setHeightUnit(e.target.value)}
+        >
+          <option value="cm">CM</option>
+          <option value="m">M</option>
+          <option value="ft">FT</option>
+        </select>
       </div>
     </div>
+
+    <div className="input-group">
+      <label>Weight</label>
+
+      <div className="input-row">
+        <input
+          type="number"
+          placeholder="Enter weight"
+          value={weight}
+          onChange={(e) => setWeight(e.target.value)}
+        />
+
+        <select
+          value={weightUnit}
+          onChange={(e) => setWeightUnit(e.target.value)}
+        >
+          <option value="kg">KG</option>
+          <option value="lbs">LBS</option>
+        </select>
+      </div>
+    </div>
+
+    <button className="calculate-btn" onClick={calculateBMI}>
+      Calculate BMI
+    </button>
+
+    {bmi && (
+      <div className="result-container">
+
+        <div
+          className="bmi-result"
+          style={{ borderColor: getBmiColor() }}
+        >
+          <div
+            className="bmi-value"
+            style={{ color: getBmiColor() }}
+          >
+            {bmi}
+          </div>
+
+          <div
+            className="bmi-category"
+            style={{ backgroundColor: getBmiColor() }}
+          >
+            {category}
+          </div>
+        </div>
+
+        <div className="bmi-chart">
+          <div className="chart-bar">
+            <div className="underweight">Underweight</div>
+            <div className="normal">Normal</div>
+            <div className="overweight">Overweight</div>
+            <div className="obese">Obese</div>
+          </div>
+
+          <div className="chart-scale">
+            <span>0</span>
+            <span>18.5</span>
+            <span>25</span>
+            <span>30</span>
+            <span>40+</span>
+          </div>
+        </div>
+
+        <div className="bmi-info">
+          <h3>BMI Categories</h3>
+
+          <ul>
+            <li><strong>Underweight:</strong> BMI less than 18.5</li>
+            <li><strong>Normal:</strong> BMI 18.5 - 24.9</li>
+            <li><strong>Overweight:</strong> BMI 25 - 29.9</li>
+            <li><strong>Obese:</strong> BMI 30 and above</li>
+          </ul>
+        </div>
+
+      </div>
+    )}
+  </div>
+</div>
   );
 };
 

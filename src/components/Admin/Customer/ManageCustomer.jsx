@@ -141,30 +141,6 @@ export default function ManageCustomer() {
     return (
         <>
            
-            {/* Header Start */}
-            <div className="container-fluid bg-breadcrumb">
-                <div className="container text-center py-5" style={{ maxWidth: 900 }}>
-                    <h4
-                        className="text-white display-4 mb-4 wow fadeInDown"
-                        data-wow-delay="0.1s"
-                    >
-                        Customers
-                    </h4>
-                    <ol
-                        className="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown"
-                        data-wow-delay="0.3s"
-                    >
-                        <li className="breadcrumb-item">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li className="breadcrumb-item">
-                            <a href="#">Pages</a>
-                        </li>
-                        <li className="breadcrumb-item active text-primary">Contact</li>
-                    </ol>
-                </div>
-            </div>
-            {/* Header End */}
             {/* Team start */}
             <RingLoader
                 color={color}
@@ -173,91 +149,188 @@ export default function ManageCustomer() {
                 size={100}
             />
 
-            <div className="container-fluid">
+           <div className="container-fluid py-3">
 
-                <div className="row my-2">
-                    <div className="col-md h4">
-                        Customers
-                    </div>
-                </div>
-                <table className="table table-bordered text-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">Sr.no</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Contact</th>
-                            <th scope="col">Gender</th>
-                            <th scope="col">Address</th>
+    {/* Heading */}
+    <div className="row my-2">
+        <div className="col-md h4 fw-bold text-dark">
+            Customers
+        </div>
+    </div>
 
-                            <th scope="col">Goal</th>
-                            <th scope="col">Age</th>
+    {/* Responsive Table */}
+    <div
+        className="table-responsive mt-4 mx-auto"
+        style={{
+            maxWidth: "1400px",
+            padding: "0 10px"
+        }}
+    >
 
-                            <th scope="col">Image</th>
+        <table
+            className="table align-middle"
+            style={{
+                borderCollapse: "separate",
+                borderSpacing: "0 12px",
+                fontSize: "14.5px",
+                width: "100%"
+            }}
+        >
 
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            Customers.map((Customer, index) => (
-                                <tr>
-                                    <th scope="row">
-                                        {index + 1}
-                                    </th>
-                                    <td scope="row">
-                                        {Customer.name}
-                                    </td>
-                                    <td scope="row">
-                                        {Customer.email}
-                                    </td>
-                                    <td scope="row">
-                                        {Customer.phone}
-                                    </td>
-                                    <td scope="row">
-                                        {Customer.gender}
-                                    </td>
-                                    <td scope="row">
-                                        {Customer.address}
-                                    </td>
-                                    <td scope="row">
-                                        {Customer.goal}
-                                    </td>
-                                    {/* <td scope="row">
-                                            {Customer.userId}
-                                        </td> */}
-                                    <td scope="row">
-                                        {Customer.age}
-                                    </td>
-                                    <td>
-                                        <a href={Customer.image} target="_blank">
-                                            <img src={Customer.image} alt="unable to load" style={imageStyle} />
-                                        </a>
-                                    </td>
-                                    {/* <td scope="row">
-                                            {Trainer.Specialization}
-                                        </td> */}
-                                    <td scope="row">
-                                        {Customer.status}
+            {/* Table Head */}
+            <thead>
+                <tr
+                    style={{
+                        background: "#1e293b",
+                        color: "#f1f5f9",
+                        fontSize: "13.5px"
+                    }}
+                >
+                    <th style={{ padding: "14px 16px" }}>#</th>
+                    <th style={{ padding: "14px 16px" }}>Name</th>
+                    <th style={{ padding: "14px 16px" }}>Email</th>
+                    <th style={{ padding: "14px 16px" }}>Contact</th>
+                    <th style={{ padding: "14px 16px" }}>Gender</th>
+                    <th style={{ padding: "14px 16px" }}>Address</th>
+                    <th style={{ padding: "14px 16px" }}>Goal</th>
+                    <th style={{ padding: "14px 16px" }}>Age</th>
+                    <th style={{ padding: "14px 16px" }}>Image</th>
+                    <th style={{ padding: "14px 16px" }}>Status</th>
+                </tr>
+            </thead>
 
-                                        {/* <Link to={`/admin/trainer/update/${Trainer._id}`}>
-                                                <button className="btn btn-sm text-primary">
-                                                    <i className="bi bi-pencil-square"></i>
-                                                </button>
-                                            </Link> */}
-                                        <button className="btn text-danger" onClick={() => {
+            {/* Table Body */}
+            <tbody>
+                {
+                    Customers.map((Customer, index) => (
+                        <tr
+                            key={Customer._id}
+                            style={{
+                                background: index % 2 === 0 ? "#ffffff" : "#f1f5f9",
+                                borderRadius: "10px",
+                                transition: "all 0.2s ease",
+                                boxShadow: "0 2px 6px rgba(0,0,0,0.05)"
+                            }}
+                        >
+
+                            {/* Sr No */}
+                            <td
+                                style={{ padding: "14px 16px" }}
+                                className="fw-semibold text-muted"
+                            >
+                                {index + 1}
+                            </td>
+
+                            {/* Name */}
+                            <td
+                                style={{
+                                    padding: "14px 16px",
+                                    fontWeight: "600"
+                                }}
+                            >
+                                {Customer.name}
+                            </td>
+
+                            {/* Email */}
+                            <td
+                                style={{
+                                    padding: "14px 16px",
+                                    maxWidth: "180px",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap"
+                                }}
+                            >
+                                {Customer.email}
+                            </td>
+
+                            {/* Phone */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Customer.phone}
+                            </td>
+
+                            {/* Gender */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Customer.gender}
+                            </td>
+
+                            {/* Address */}
+                            <td
+                                style={{
+                                    padding: "14px 16px",
+                                    maxWidth: "220px",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap"
+                                }}
+                            >
+                                {Customer.address}
+                            </td>
+
+                            {/* Goal */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Customer.goal}
+                            </td>
+
+                            {/* Age */}
+                            <td style={{ padding: "14px 16px" }}>
+                                {Customer.age}
+                            </td>
+
+                            {/* Image */}
+                            <td style={{ padding: "14px 16px" }}>
+                                <a
+                                    href={Customer.image}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <img
+                                        src={Customer.image}
+                                        alt="unable to load"
+                                        style={{
+                                            width: "55px",
+                                            height: "55px",
+                                            borderRadius: "50%",
+                                            objectFit: "cover",
+                                            border: "2px solid #e2e8f0"
+                                        }}
+                                    />
+                                </a>
+                            </td>
+
+                            {/* Status + Delete */}
+                            <td style={{ padding: "14px 16px" }}>
+
+                                <div className="">
+
+                                    {/* Delete Button */}
+                                    <button
+                                        className="btn btn-sm"
+                                        onClick={() => {
                                             deleteCustomerFun(Customer._id)
-                                        }}>
+                                        }}
+                                        style={{
+                                            border: "none",
+                                            background: "transparent",
+                                            color: "#ef4444",
+                                            fontSize: "17px"
+                                        }}
+                                    >
+                                        <i className="bi bi-trash-fill"></i>
+                                    </button>
 
-                                            <i class="bi bi-trash-fill"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-            </div>
+                                </div>
+
+                            </td>
+
+                        </tr>
+                    ))
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
 
             {/* Team End */}
         </>

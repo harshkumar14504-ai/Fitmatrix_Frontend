@@ -103,145 +103,309 @@ export default function TrainerDashboard() {
 
     return (
         <>
-            <div className="container-fluid bg-breadcrumb">
-                <div className="container text-center py-5" style={{ maxWidth: 900 }}>
-                    <h4 className="text-white display-4 mb-4">Trainer Dashboard</h4>
-                    <ol className="breadcrumb d-flex justify-content-center mb-0">
-                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                        <li className="breadcrumb-item active text-primary">Dashboard</li>
-                    </ol>
+          
+
+            {loading ? (
+    <div className="d-flex justify-content-center align-items-center vh-100">
+        <RingLoader
+            color="#ff1744"
+            loading={loading}
+            cssOverride={override}
+            size={90}
+        />
+    </div>
+) : (
+    <div
+        className="container-fluid py-4"
+        style={{
+            background: "#f4f7fc",
+            minHeight: "100vh",
+        }}
+    >
+        {/* TOP STATS */}
+        <div className="row g-4 mb-4">
+            {/* Clients */}
+            <div className="col-md-4">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{
+                        borderRadius: "22px",
+                        overflow: "hidden",
+                        transition: "0.4s",
+                    }}
+                >
+                    <div className="card-body d-flex align-items-center p-4">
+                        <div
+                            className="d-flex justify-content-center align-items-center"
+                            style={{
+                                width: "80px",
+                                height: "80px",
+                                borderRadius: "20px",
+                                background:
+                                    "linear-gradient(135deg,#2979ff,#00c6ff)",
+                                color: "white",
+                                boxShadow:
+                                    "0 12px 30px rgba(41,121,255,0.4)",
+                            }}
+                        >
+                            <i className="fas fa-users fa-2x"></i>
+                        </div>
+
+                        <div className="ms-4">
+                            <p
+                                className="mb-1 text-secondary"
+                                style={{ fontSize: "15px" }}
+                            >
+                                My Clients
+                            </p>
+
+                            <h2
+                                className="fw-bold mb-0"
+                                style={{ color: "#0b1c49" }}
+                            >
+                                {customerCount}
+                            </h2>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {loading ? (
-                <div className="d-flex justify-content-center py-5">
-                    <RingLoader color="#eb0c1b" loading={loading} cssOverride={override} size={80} />
-                </div>
-            ) : (
-                <div className="container-fluid py-4">
-                    <div className="row g-4 mb-4">
-                        <div className="col-md-4">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-body d-flex align-items-center">
-                                    <div className="flex-shrink-0 bg-primary bg-opacity-10 p-3 rounded">
-                                        <i className="fas fa-users fa-2x text-primary"></i>
-                                    </div>
-                                    <div className="flex-grow-1 ms-3">
-                                        <p className="text-muted mb-0"><i className="fas fa-users me-2"></i>My Clients</p>
-                                        <h3 className="mb-0 fw-bold">{customerCount}</h3>
-                                    </div>
-                                </div>
-                            </div>
+            {/* Diet */}
+            <div className="col-md-4">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{
+                        borderRadius: "22px",
+                        overflow: "hidden",
+                    }}
+                >
+                    <div className="card-body d-flex align-items-center p-4">
+                        <div
+                            className="d-flex justify-content-center align-items-center"
+                            style={{
+                                width: "80px",
+                                height: "80px",
+                                borderRadius: "20px",
+                                background:
+                                    "linear-gradient(135deg,#00c853,#69f0ae)",
+                                color: "white",
+                                boxShadow:
+                                    "0 12px 30px rgba(0,200,83,0.4)",
+                            }}
+                        >
+                            <i className="fas fa-utensils fa-2x"></i>
                         </div>
-                        <div className="col-md-4">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-body d-flex align-items-center">
-                                    <div className="flex-shrink-0 bg-success bg-opacity-10 p-3 rounded">
-                                        <i className="fas fa-utensils fa-2x text-success"></i>
-                                    </div>
-                                    <div className="flex-grow-1 ms-3">
-                                        <p className="text-muted mb-0"><i className="fas fa-utensils me-2"></i>Diet Plans</p>
-                                        <h3 className="mb-0 fw-bold">{dietCount}</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-body d-flex align-items-center">
-                                    <div className="flex-shrink-0 bg-warning bg-opacity-10 p-3 rounded">
-                                        <i className="fas fa-dumbbell fa-2x text-warning"></i>
-                                    </div>
-                                    <div className="flex-grow-1 ms-3">
-                                        <p className="text-muted mb-0"><i className="fas fa-dumbbell me-2"></i>Workout Plans</p>
-                                        <h3 className="mb-0 fw-bold">{workoutCount}</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className="row g-4 mb-4">
-                        <div className="col-lg-6">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-header bg-white border-0">
-                                    <h5 className="mb-0">Client Management</h5>
-                                </div>
-                                <div className="card-body">
-                                    <div className="row g-3">
-                                        <div className="col-6">
-                                            <Link to="/trainer/customer/progress" className="btn btn-outline-primary w-100 py-3">
-                                                <i className="fas fa-chart-line mb-2 d-block fs-4"></i>
-                                                Track Progress
-                                            </Link>
-                                        </div>
-                                        {/* <div className="col-6">
-                                            <Link to="/trainer/diet/manage" className="btn btn-outline-success w-100 py-3">
-                                                <i className="fas fa-utensils mb-2 d-block fs-4"></i>
-                                                Manage Diets
-                                            </Link>
-                                        </div> */}
-                                        {/* <div className="col-6">
-                                            <Link to="/trainer/excercise/manage" className="btn btn-outline-warning w-100 py-3">
-                                                <i className="fas fa-dumbbell mb-2 d-block fs-4"></i>
-                                                Manage Exercises
-                                            </Link>
-                                        </div> */}
-                                        <div className="col-6">
-                                            <Link to="/trainer/batches" className="btn btn-outline-info w-100 py-3">
-                                                <i className="fas fa-layer-group mb-2 d-block fs-4"></i>
-                                                View Batches
-                                            </Link>
-                                        </div>
-                                        {/* <div className="col-6">
-                                            <Link to="/ai-coach" className="btn btn-outline-success w-100 py-3">
-                                                <i className="fas fa-robot mb-2 d-block fs-4"></i>
-                                                AI Coach
-                                            </Link>
-                                        </div> */}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-header bg-white border-0">
-                                    <h5 className="mb-0">Account</h5>
-                                </div>
-                                <div className="card-body">
-                                    <div className="row g-3">
-                                        <div className="col-6">
-                                            <Link to="/trainer/update/profile" className="btn btn-outline-secondary w-100 py-3">
-                                                <i className="fas fa-user-edit mb-2 d-block fs-4"></i>
-                                                Update Profile
-                                            </Link>
-                                        </div>
-                                        {/* <div className="col-6">
-                                            <Link to="/trainer/reports" className="btn btn-outline-dark w-100 py-3">
-                                                <i className="fas fa-file-alt mb-2 d-block fs-4"></i>
-                                                View Reports
-                                            </Link>
-                                        </div> */}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <div className="ms-4">
+                            <p
+                                className="mb-1 text-secondary"
+                                style={{ fontSize: "15px" }}
+                            >
+                                Diet Plans
+                            </p>
 
-                    <div className="row g-4 mb-4">
-                        <div className="col-lg-12">
-                            <div className="card shadow border-0 h-100">
-                                <div className="card-header bg-white border-0">
-                                    <h5 className="mb-0">Statistics Overview</h5>
-                                </div>
-                                <div className="card-body" style={{ minHeight: 250, maxHeight: 300 }}>
-                                    <Bar data={data} options={options} height={220} />
-                                </div>
-                            </div>
+                            <h2
+                                className="fw-bold mb-0"
+                                style={{ color: "#0b1c49" }}
+                            >
+                                {dietCount}
+                            </h2>
                         </div>
                     </div>
                 </div>
-            )}
+            </div>
+
+            {/* Workout */}
+            <div className="col-md-4">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{
+                        borderRadius: "22px",
+                        overflow: "hidden",
+                    }}
+                >
+                    <div className="card-body d-flex align-items-center p-4">
+                        <div
+                            className="d-flex justify-content-center align-items-center"
+                            style={{
+                                width: "80px",
+                                height: "80px",
+                                borderRadius: "20px",
+                                background:
+                                    "linear-gradient(135deg,#ff9100,#ffca28)",
+                                color: "white",
+                                boxShadow:
+                                    "0 12px 30px rgba(255,145,0,0.4)",
+                            }}
+                        >
+                            <i className="fas fa-dumbbell fa-2x"></i>
+                        </div>
+
+                        <div className="ms-4">
+                            <p
+                                className="mb-1 text-secondary"
+                                style={{ fontSize: "15px" }}
+                            >
+                                Workout Plans
+                            </p>
+
+                            <h2
+                                className="fw-bold mb-0"
+                                style={{ color: "#0b1c49" }}
+                            >
+                                {workoutCount}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* ACTION SECTIONS */}
+        <div className="row g-4 mb-4">
+            {/* CLIENT MANAGEMENT */}
+            <div className="col-lg-6">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{ borderRadius: "24px" }}
+                >
+                    <div
+                        className="card-header border-0 text-white p-4"
+                        style={{
+                            background:
+                                "linear-gradient(135deg,#1a237e,#3949ab)",
+                            borderTopLeftRadius: "24px",
+                            borderTopRightRadius: "24px",
+                        }}
+                    >
+                        <h4 className="mb-0 fw-bold">
+                            Client Management
+                        </h4>
+                    </div>
+
+                    <div className="card-body p-4">
+                        <div className="row g-4">
+                            <div className="col-6">
+                                <Link
+                                    to="/trainer/customer/progress"
+                                    className="btn border-0 w-100 py-4"
+                                    style={{
+                                        borderRadius: "20px",
+                                        background: "#eef4ff",
+                                        transition: "0.3s",
+                                    }}
+                                >
+                                    <i className="fas fa-chart-line d-block fs-1 mb-3 text-primary"></i>
+
+                                    <span className="fw-semibold text-dark">
+                                        Track Progress
+                                    </span>
+                                </Link>
+                            </div>
+
+                            <div className="col-6">
+                                <Link
+                                    to="/trainer/batches"
+                                    className="btn border-0 w-100 py-4"
+                                    style={{
+                                        borderRadius: "20px",
+                                        background: "#eefcff",
+                                    }}
+                                >
+                                    <i className="fas fa-layer-group d-block fs-1 mb-3 text-info"></i>
+
+                                    <span className="fw-semibold text-dark">
+                                        View Batches
+                                    </span>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ACCOUNT */}
+            <div className="col-lg-6">
+                <div
+                    className="card border-0 shadow-lg h-100"
+                    style={{ borderRadius: "24px" }}
+                >
+                    <div
+                        className="card-header border-0 text-white p-4"
+                        style={{
+                            background:
+                                "linear-gradient(135deg,#6a11cb,#2575fc)",
+                            borderTopLeftRadius: "24px",
+                            borderTopRightRadius: "24px",
+                        }}
+                    >
+                        <h4 className="mb-0 fw-bold">Account</h4>
+                    </div>
+
+                    <div className="card-body p-4">
+                        <div className="row g-4">
+                            <div className="col-12">
+                                <Link
+                                    to="/trainer/update/profile"
+                                    className="btn border-0 w-100 py-5"
+                                    style={{
+                                        borderRadius: "20px",
+                                        background:
+                                            "linear-gradient(135deg,#f5f7fa,#e4ecff)",
+                                        transition: "0.3s",
+                                    }}
+                                >
+                                    <i className="fas fa-user-edit d-block fs-1 mb-3 text-secondary"></i>
+
+                                    <span
+                                        className="fw-bold text-dark"
+                                        style={{ fontSize: "18px" }}
+                                    >
+                                        Update Profile
+                                    </span>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* CHART SECTION */}
+        <div className="row">
+            <div className="col-12">
+                <div
+                    className="card border-0 shadow-lg"
+                    style={{ borderRadius: "24px" }}
+                >
+                    <div
+                        className="card-header border-0 text-white p-4"
+                        style={{
+                            background:
+                                "linear-gradient(135deg,#141e30,#243b55)",
+                            borderTopLeftRadius: "24px",
+                            borderTopRightRadius: "24px",
+                        }}
+                    >
+                        <h4 className="mb-0 fw-bold">
+                            Statistics Overview
+                        </h4>
+                    </div>
+
+                    <div className="card-body p-4">
+                        <div style={{ minHeight: 300 }}>
+                            <Bar
+                                data={data}
+                                options={options}
+                                height={240}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+)}
         </>
     );
 }

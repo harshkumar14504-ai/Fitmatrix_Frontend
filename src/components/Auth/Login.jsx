@@ -179,83 +179,68 @@ export default function Login() {
                 </div>
             </div>
             {/* Header End */}
-            {/* Contact Start */}
-            <div className="d-flex justify-content-center pt-3 align-item-center">
-                <RingLoader
+{/* Contact Start */}
+           <div className="container-xxl py-5">
+                     <RingLoader
                     color={color}
                     loading={loading}
                     cssOverride={override}
                     size={100}
                 />
-            </div>
-            <div className="col-lg-4 offset-lg-4 wow fadeInRight" data-wow-delay="0.4s">
-                <div className="form-section bg-dark p-5 h-100">
-                    <h1 className="display-4 text-white mb-4 offset-4">Login</h1>
-                    <form onSubmit={submit}>
+                    <div className="container">
+                        <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+                            <h6 className="section-title bg-white text-center text-primary px-3">
+                                Login
+                            </h6>
+
+                        </div>
                         <div className="row g-4">
-                            {/* <div className="col-12">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="text"
-                                        className="form-control border-0"
-                                        id="name" value={name}
-                                        placeholder="Your Name"
-                                        onChange={getName}
-                                    />
-                                    <label htmlFor="name">Enter Name</label>
-                                </div>
-                            </div> */}
 
 
-                            <div className=" col-12">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="email"
-                                        className="form-control border-0"
-                                        id="email" value={email}
-                                        placeholder="Project"
-                                        onChange={getEmail}
-                                    />
-                                    <label htmlFor="project">Enter Email</label>
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <div className="form-floating form-section-col">
-                                    <input
-                                        type="password"
-                                        className="form-control border-0"
-                                        id="subject" value={password}
-                                        placeholder="Subject"
-                                        onChange={getPassword}
-                                    />
-                                    <label htmlFor="subject">Enter Password</label>
-                                </div>
-                            </div>
+                            <div className="col-lg-6 offset-lg-3 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                                <form onSubmit={submit}>
+                                    <div className="row g-3">
+                                        <div className="col-md-12">
+                                            <div className="form-floating">
+                                                <input
+                                                    type="email"
+                                                    className="form-control"
+                                                    id="email" value={email}
+                                                    placeholder="Your Email"
+                                                    onChange={(e) => setEmail(e.target.value)}
+                                                />
 
-                            <div className="col-12">
-                                <div className="form-check">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        defaultValue="#"
-                                        id="flexCheck"
-                                    />
-                                    <label className="form-check-label" htmlFor="flexCheck">
-                                        I agree with the site privacy policy
-                                    </label>
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <div className="form-section-col">
-                                    <button className="btn-primary w-100 py-3 px-5" type="submit">
-                                        Login
-                                    </button>
-                                </div>
+                                              
+                                                <label htmlFor="email">Your Email</label>
+                                            </div>
+                                        </div>
+                                        <div className="col-12">
+                                            <div className="form-floating">
+                                                <input
+                                                    type="password"
+                                                    className="form-control"
+                                                    id="subject"
+                                                    placeholder="Password" value={password}
+                                                    onChange={(e) => setPassword(e.target.value)}
+
+                                                />
+
+                                               
+                                                <label htmlFor="subject">Password</label>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-12">
+                                            <button className="btn btn-primary w-100 py-3" type="submit" >
+                                                Login
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
             {/* Contact End */}
         </>
     )

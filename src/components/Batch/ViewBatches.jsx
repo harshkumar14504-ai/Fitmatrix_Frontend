@@ -128,17 +128,7 @@ export default function ViewBatches() {
 
   return (
     <>
-      <div className="container-fluid bg-breadcrumb">
-        <div className="container text-center py-5" style={{ maxWidth: 900 }}>
-          <h4 className="text-white display-4 mb-4">View Batches</h4>
-          <ol className="breadcrumb d-flex justify-content-center mb-0">
-            <li className="breadcrumb-item">
-              <a href="#">Home</a>
-            </li>
-            <li className="breadcrumb-item active text-primary">Batches</li>
-          </ol>
-        </div>
-      </div>
+    
 
       <RingLoader
         color={color}
