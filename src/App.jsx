@@ -21,7 +21,7 @@ import Register from "./components/Auth/Register";
 // import AddTrainers from "./components/Admin/Trainer/AddTrainer";
 import AddTrainer from "./components/Admin/Trainer/AddTrainer";
 import ManageTrainer from "./components/Admin/Trainer/ManageTrainer";
-import UpdateTrainer from "./components/Admin/Trainer/updateTrainer";
+import UpdateTrainer from "./components/Admin/Trainer/UpdateTrainer";
 import ManageBatches from "./components/Admin/Batch/ManageBatches";
 import AddBatch from "./components/Admin/Batch/AddBatch";
 import UpdateBatch from "./components/Admin/Batch/UpdateBatch";
