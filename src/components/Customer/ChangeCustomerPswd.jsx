@@ -47,108 +47,205 @@ export default function ChangeCustomerPswd() {
     };
     return (
         <>
-            <div className="container-fluid bg-primary py-5 mb-5 page-header">
-                <div className="container py-5">
-                    <div className="row justify-content-center">
-                        <div className="col-lg-10 text-center">
-                            <h1 className="display-3 text-white animated slideInDown">
-                                Change Password
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             {/* Header End */}
             {/* Service Start */}
-            <div className="col-lg-6 offset-lg-3 my-3">
-                <div className="form-section bg-dark p-5 h-100">
-                    <h1 className="display-5 text-white mb-4 text-center">Change Password</h1>
+           <div
+    className="col-lg-6 offset-lg-3 wow fadeInRight my-4"
+    data-wow-delay="0.4s"
+>
+    <div
+        className="form-section p-5 h-100"
+        style={{
+            background: "#07154A",
+            borderRadius: "24px",
+            boxShadow: "0 12px 40px rgba(0,0,0,0.45)",
+        }}
+    >
+        <h1
+            className="display-5 text-white mb-5 text-center"
+            style={{
+                fontWeight: "700",
+                letterSpacing: "1px",
+            }}
+        >
+            Change Password
+        </h1>
 
-                    <form onSubmit={submit}>
-                        <div className="row g-4">
+        <form onSubmit={submit}>
+            <div className="row g-4">
 
-                            {/* Old Password */}
-                            <div className="col-12">
-                                <div className="form-floating form-section-col position-relative">
-                                    <input
-                                        type={showOld ? "text" : "password"}
-                                        className="form-control border-0"
-                                        id="oldPassword"
-                                        placeholder="Old Password"
-                                        value={oldPassword}
-                                        onChange={(e) => setOldPassword(e.target.value)}
-                                    />
-                                    <label htmlFor="oldPassword">Old Password</label>
+                {/* Old Password */}
+                <div className="col-12">
+                    <div className="form-floating position-relative">
+                        <input
+                            type={showOld ? "text" : "password"}
+                            className="form-control border-0"
+                            id="oldPassword"
+                            placeholder="Old Password"
+                            value={oldPassword}
+                            onChange={(e) => setOldPassword(e.target.value)}
+                            style={{
+                                height: "65px",
+                                borderRadius: "12px",
+                                background: "#f4f4f4",
+                                fontSize: "17px",
+                                paddingRight: "60px",
+                            }}
+                        />
 
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowOld(!showOld)}
-                                        style={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)" }}
-                                    >
-                                        👁
-                                    </button>
-                                </div>
-                            </div>
+                        <label htmlFor="oldPassword">
+                            Old Password
+                        </label>
 
-                            {/* New Password */}
-                            <div className="col-12">
-                                <div className="form-floating form-section-col position-relative">
-                                    <input
-                                        type={showNew ? "text" : "password"}
-                                        className="form-control border-0"
-                                        id="newPassword"
-                                        placeholder="New Password"
-                                        value={newPassword}
-                                        onChange={(e) => setNewPassword(e.target.value)}
-                                    />
-                                    <label htmlFor="newPassword">New Password</label>
-
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowNew(!showNew)}
-                                        style={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)" }}
-                                    >
-                                        👁
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Confirm Password */}
-                            <div className="col-12">
-                                <div className="form-floating form-section-col position-relative">
-                                    <input
-                                        type={showConfirm ? "text" : "password"}
-                                        className="form-control border-0"
-                                        id="confirmPassword"
-                                        placeholder="Confirm Password"
-                                        value={confirmPassword}
-                                        onChange={(e) => setConfirmPassword(e.target.value)}
-                                    />
-                                    <label htmlFor="confirmPassword">Confirm Password</label>
-
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowConfirm(!showConfirm)}
-                                        style={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)" }}
-                                    >
-                                        👁
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Submit */}
-                            <div className="col-12">
-                                <div className="form-section-col">
-                                    <button className="btn-primary w-100 py-3 px-5" type="submit">
-                                        Change Password
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </form>
+                        <button
+                            type="button"
+                            onClick={() => setShowOld(!showOld)}
+                            style={{
+                                position: "absolute",
+                                right: "15px",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                border: "none",
+                                background: "transparent",
+                                fontSize: "20px",
+                                cursor: "pointer",
+                                zIndex: "10",
+                            }}
+                        >
+                            👁
+                        </button>
+                    </div>
                 </div>
+
+                {/* New Password */}
+                <div className="col-12">
+                    <div className="form-floating position-relative">
+                        <input
+                            type={showNew ? "text" : "password"}
+                            className="form-control border-0"
+                            id="newPassword"
+                            placeholder="New Password"
+                            value={newPassword}
+                            onChange={(e) => setNewPassword(e.target.value)}
+                            style={{
+                                height: "65px",
+                                borderRadius: "12px",
+                                background: "#f4f4f4",
+                                fontSize: "17px",
+                                paddingRight: "60px",
+                            }}
+                        />
+
+                        <label htmlFor="newPassword">
+                            New Password
+                        </label>
+
+                        <button
+                            type="button"
+                            onClick={() => setShowNew(!showNew)}
+                            style={{
+                                position: "absolute",
+                                right: "15px",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                border: "none",
+                                background: "transparent",
+                                fontSize: "20px",
+                                cursor: "pointer",
+                                zIndex: "10",
+                            }}
+                        >
+                            👁
+                        </button>
+                    </div>
+                </div>
+
+                {/* Confirm Password */}
+                <div className="col-12">
+                    <div className="form-floating position-relative">
+                        <input
+                            type={showConfirm ? "text" : "password"}
+                            className="form-control border-0"
+                            id="confirmPassword"
+                            placeholder="Confirm Password"
+                            value={confirmPassword}
+                            onChange={(e) =>
+                                setConfirmPassword(e.target.value)
+                            }
+                            style={{
+                                height: "65px",
+                                borderRadius: "12px",
+                                background: "#f4f4f4",
+                                fontSize: "17px",
+                                paddingRight: "60px",
+                            }}
+                        />
+
+                        <label htmlFor="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <button
+                            type="button"
+                            onClick={() =>
+                                setShowConfirm(!showConfirm)
+                            }
+                            style={{
+                                position: "absolute",
+                                right: "15px",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                border: "none",
+                                background: "transparent",
+                                fontSize: "20px",
+                                cursor: "pointer",
+                                zIndex: "10",
+                            }}
+                        >
+                            👁
+                        </button>
+                    </div>
+                </div>
+
+                {/* Submit Button */}
+                <div className="col-12 mt-4">
+                    <button
+                        className="w-100 border-0"
+                        type="submit"
+                        style={{
+                            background: "#e6004c",
+                            color: "#fff",
+                            height: "60px",
+                            borderRadius: "12px",
+                            fontSize: "20px",
+                            fontWeight: "600",
+                            letterSpacing: "1px",
+                            transition: "0.3s",
+                            boxShadow:
+                                "0 5px 20px rgba(230,0,76,0.4)",
+                        }}
+                        onMouseEnter={(e) => {
+                            e.target.style.transform =
+                                "translateY(-3px)";
+                            e.target.style.background =
+                                "#ff0055";
+                        }}
+                        onMouseLeave={(e) => {
+                            e.target.style.transform =
+                                "translateY(0px)";
+                            e.target.style.background =
+                                "#e6004c";
+                        }}
+                    >
+                        Change Password
+                    </button>
+                </div>
+
             </div>
+        </form>
+    </div>
+</div>
 
 
         </>
