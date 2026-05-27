@@ -54,176 +54,210 @@ export default function AdminHeader() {
       </div>
       {/* Modal Search End */}
       {/* Navbar & Hero Start */}
-      <div className="container-fluid header-top">
-        <div className="nav-shaps-2" />
-        <div className="container d-flex align-items-center">
-          <div className="d-flex align-items-center h-100">
-            <a href="#" className="navbar-brand" style={{ height: 125 }}>
-              <h1
-                className="mb-0"
-                style={{ display: "flex", alignItems: "center", gap: "8px" }}
-              >
-                <i className="fas fa-dumbbell text-danger" />
-                <span
-                  style={{
-                    fontWeight: 900,
-                    letterSpacing: "2px",
-                    color: "white",
-                  }}
-                >
-                  FIT-MATRIX
-                </span>
-              </h1>
-              {/* <img src="img/logo.png" alt="Logo"> */}
-            </a>
-          </div>
-          <div className="w-100 h-100">
-            <div
-              className="topbar px-0 py-2 d-none d-lg-block"
-              style={{ height: 45 }}
+    <div className="container-fluid header-top">
+  <div className="nav-shaps-2" />
+
+  <div className="container">
+    <div className="d-flex flex-column flex-lg-row align-items-lg-center">
+
+      {/* LOGO */}
+      <div className="d-flex justify-content-between align-items-center w-100 w-lg-auto">
+        <a href="#" className="navbar-brand m-0" style={{ height: 125 }}>
+          <h1
+            className="mb-0 d-flex align-items-center gap-2 flex-wrap"
+          >
+            <i className="fas fa-dumbbell text-danger" />
+
+            <span
+              style={{
+                fontWeight: 900,
+                letterSpacing: "2px",
+                color: "white",
+                fontSize: "clamp(22px,4vw,38px)",
+              }}
             >
-              <div className="row gx-0 align-items-center">
-                <div className="col-lg-8 text-center text-lg-center mb-lg-0">
-                  <div className="d-flex flex-wrap">
-                    <div className="pe-4">
-                      <a
-                        href="mailto:example@gmail.com"
-                        className="text-muted small"
-                      >
-                        <i className="fas fa-envelope text-primary me-2" />
-                        FitMatrix@gmail.com
-                      </a>
-                    </div>
-                    <div className="pe-0">
-                      <a
-                        href="mailto:example@gmail.com"
-                        className="text-muted small"
-                      >
-                        <i className="fa fa-clock text-primary me-2" />
-                        OPEN 24 hours, 7 days a week!
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 text-center text-lg-end">
-                  <div className="d-flex justify-content-end"></div>
-                </div>
-              </div>
-            </div>
-            <div className="nav-bar px-0 py-lg-0" style={{ height: 80 }}>
-              <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
-                <a href="#" className="navbar-brand-2">
-                  <h1 className="text-primary mb-0">
-                    <i className="fas fa-hand-rock me-2" /> Fitness
-                  </h1>
-                  {/* <img src="img/logo.png" alt="Logo"> */}
-                </a>
-                <button
-                  className="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarCollapse"
-                >
-                  <span className="fa fa-bars" />
-                </button>
-                <div className="collapse navbar-collapse" id="navbarCollapse">
-                  <div className="navbar-nav mx-0 mx-lg-auto">
-                    <Link to="/admin/dashboard" className="nav-item nav-link ">
-                      Dashboard
-                    </Link>
-                    <Link to="/admin/customers" className="nav-item nav-link ">
-                      Customers
-                    </Link>
-                    <Link
-                      to="/admin/trainer/manage"
-                      className="nav-item nav-link"
-                    >
-                      Manage Trainers
-                    </Link>
-                    <Link
-                      to="/admin/batch/manage"
-                      className="nav-item nav-link"
-                    >
-                      Manage Batches
-                    </Link>
-                    <Link
-                      to="/admin/requests/manage"
-                      className="nav-item nav-link"
-                    >
-                      Manage Requests
-                    </Link>
-                    <div className="nav-item dropdown">
-                      <a
-                        href="#"
-                        className="nav-link dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                      >
-                        Pages
-                      </a>
-                      <div className="dropdown-menu">
-                        <Link to="/admin/diets" className="dropdown-item">
-                           View Diets
-                        </Link>
-                        <Link  to="/admin/exercises" className="dropdown-item">
-                           View Exercises
-                        </Link>
-                        <Link to="/admin/progress" className="dropdown-item">
-                           View Progress
-                        </Link>
-                        <Link to="/admin/contact/manage" className="dropdown-item">
-                              Manage Contact
-                        </Link>
-                      </div>
-                    </div>
+              FIT-MATRIX
+            </span>
+          </h1>
+        </a>
 
-                  
+        {/* TOGGLER */}
+        <button
+          className="navbar-toggler d-lg-none border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span className="fa fa-bars text-white fs-2" />
+        </button>
+      </div>
 
-                    {/* <Link to="/contact" className="nav-item nav-link">
-                                            Contact
-                                        </Link> */}
-                    <div className="d-flex ms-lg-auto align-items-center">
-                      {localStorage.getItem("token") ? (
-                        <div className="nav-btn ps-3">
-                          <button
-                            className="btn btn-primary py-2 px-3"
-                            onClick={logout}
-                          >
-                            LOGOUT
-                          </button>
-                        </div>
-                      ) : (
-                        <>
-                          {/* Register Button */}
-                          <div className="nav-btn ps-3">
-                            <Link
-                              to="/register"
-                              className="btn btn-primary py-2 px-2"
-                            >
-                              <span>REGISTER</span>
-                            </Link>
-                          </div>
+      {/* RIGHT SECTION */}
+      <div className="w-100">
 
-                          {/* Login Button */}
-                          <div className="nav-btn ps-3">
-                            <Link
-                              to="/login"
-                              className="btn btn-primary py-2 px-3"
-                            >
-                              <span>LOGIN</span>
-                            </Link>
-                          </div>
-                        </>
-                      )}
-                    </div>
+        {/* TOPBAR */}
+        <div
+          className="topbar px-0 py-2 d-none d-lg-block"
+          style={{ minHeight: 45 }}
+        >
+          <div className="d-flex justify-content-between align-items-center flex-wrap">
 
-                    <div className="nav-shaps-1" />
-                  </div>
-                </div>
-              </nav>
+            <div className="d-flex flex-wrap gap-3">
+
+              <a
+                href="mailto:example@gmail.com"
+                className="text-muted small text-decoration-none"
+              >
+                <i className="fas fa-envelope text-primary me-2" />
+                FitMatrix@gmail.com
+              </a>
+
+              <a
+                href="#"
+                className="text-muted small text-decoration-none"
+              >
+                <i className="fa fa-clock text-primary me-2" />
+                OPEN 24 hours, 7 days a week!
+              </a>
+
             </div>
           </div>
         </div>
+
+        {/* NAVBAR */}
+        <div className="nav-bar">
+          <nav className="navbar navbar-expand-lg navbar-light p-0">
+
+            <div className="collapse navbar-collapse" id="navbarCollapse">
+
+              <div className="navbar-nav mx-auto align-items-lg-center text-center text-lg-start w-100">
+
+                <Link
+                  to="/admin/dashboard"
+                  className="nav-item nav-link"
+                >
+                  Dashboard
+                </Link>
+
+                <Link
+                  to="/admin/customers"
+                  className="nav-item nav-link"
+                >
+                  Customers
+                </Link>
+
+                <Link
+                  to="/admin/trainer/manage"
+                  className="nav-item nav-link"
+                >
+                  Manage Trainers
+                </Link>
+
+                <Link
+                  to="/admin/batch/manage"
+                  className="nav-item nav-link"
+                >
+                  Manage Batches
+                </Link>
+
+                <Link
+                  to="/admin/requests/manage"
+                  className="nav-item nav-link"
+                >
+                  Manage Requests
+                </Link>
+
+                {/* DROPDOWN */}
+                <div className="nav-item dropdown">
+                  <a
+                    href="#"
+                    className="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                  >
+                    Pages
+                  </a>
+
+                  <div className="dropdown-menu">
+
+                    <Link
+                      to="/admin/diets"
+                      className="dropdown-item"
+                    >
+                      View Diets
+                    </Link>
+
+                    <Link
+                      to="/admin/exercises"
+                      className="dropdown-item"
+                    >
+                      View Exercises
+                    </Link>
+
+                    <Link
+                      to="/admin/progress"
+                      className="dropdown-item"
+                    >
+                      View Progress
+                    </Link>
+
+                    <Link
+                      to="/admin/contact/manage"
+                      className="dropdown-item"
+                    >
+                      Manage Contact
+                    </Link>
+
+                  </div>
+                </div>
+
+                {/* BUTTONS */}
+                <div
+                  className="
+                    d-flex
+                    flex-column
+                    flex-lg-row
+                    gap-2
+                    ms-lg-auto
+                    mt-3
+                    mt-lg-0
+                  "
+                >
+                  {localStorage.getItem("token") ? (
+                    <button
+                      className="btn btn-primary py-2 px-3"
+                      onClick={logout}
+                    >
+                      LOGOUT
+                    </button>
+                  ) : (
+                    <>
+                      <Link
+                        to="/register"
+                        className="btn btn-primary py-2 px-3"
+                      >
+                        REGISTER
+                      </Link>
+
+                      <Link
+                        to="/login"
+                        className="btn btn-primary py-2 px-3"
+                      >
+                        LOGIN
+                      </Link>
+                    </>
+                  )}
+                </div>
+
+              </div>
+
+              <div className="nav-shaps-1" />
+            </div>
+          </nav>
+        </div>
       </div>
+    </div>
+  </div>
+</div>
       {/* Navbar & Hero End */}
 
       {/* Header Start
