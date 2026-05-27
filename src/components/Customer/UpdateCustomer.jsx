@@ -192,7 +192,7 @@ export default function UpdateCustomer() {
                                 paddingTop: "18px",
                             }}
                         />
-                        <label htmlFor="image">Your Image</label>
+                        {/* <label htmlFor="image">Your Image</label> */}
                     </div>
                 </div>
 
