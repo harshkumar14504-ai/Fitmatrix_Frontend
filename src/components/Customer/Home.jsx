@@ -386,9 +386,11 @@ export default function Home() {
                                                 <p className="mb-2"><strong>Time:</strong> {batch.time} ({batch.sessionType})</p>
                                                 <p className="mb-2"><strong>Total Slots:</strong> {batch.totalSlots}</p>
                                                 <p className="mb-4">{formatDate(batch.startDate)} to {formatDate(batch.endDate)} | Rs. {batch.fees}</p>
-                                                <Link to="/batches" className="btn btn-primary py-2 px-4">
+                                                {isLogin ? (<Link to="/batches" className="btn btn-primary py-2 px-4">
                                                     <span>View Batch</span>
-                                                </Link>
+                                                </Link>) :  (<Link to="/register" className="btn btn-primary py-2 px-4">
+                                                    <span>View Batch</span>
+                                                </Link>)}
                                             </div>
                                         </div>
                                     </div>
