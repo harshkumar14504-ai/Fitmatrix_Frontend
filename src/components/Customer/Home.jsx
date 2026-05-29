@@ -1,17 +1,42 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { allBatch } from "../../services/batchService";
+import { allTrainers } from "../../services/trainerService";
+import { RingLoader } from "react-spinners";
 
 import BMICalculator from "../layout/customerLayout/BmiCalculator";
+
+
+const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+};
 
 export default function Home() {
     const [batches, setBatches] = useState([])
     const [isLogin, setIsLogin] = useState(false)
+    const [trainers, setTrainers] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         getAllBatch()
+        fetchTrainers();
         setIsLogin(localStorage.getItem("token") ? true : false)
     }, [])
+
+    const fetchTrainers = () => {
+        setLoading(true);
+        allTrainers({}).then((res) => {
+            if (res.data.success) {
+                setLoading(false);
+                setTrainers(res.data.data);
+            }
+        }).catch((err) => {
+            setLoading(false);
+            console.log(err);
+        });
+    };
 
     const getAllBatch = () => {
         allBatch({})
@@ -750,127 +775,41 @@ export default function Home() {
                         <h4 className="text-primary">Our Trainer</h4>
                         <h1 className="display-4 mb-4">Meet Our Amazing Team</h1>
                         <p className="mb-0">
-                            Our team at FIT is made up of passionate and certified fitness professionals dedicated to helping you reach your goals. With expertise in strength training, cardio, and nutrition guidance, our trainers provide the motivation, support, and knowledge you need to stay consistent, train smarter, and achieve lasting fitness results
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
+                            adipisci facilis cupiditate recusandae aperiam temporibus corporis
+                            itaque quis facere, numquam, ad culpa deserunt sint dolorem autem
+                            obcaecati, ipsam mollitia hic.
                         </p>
                     </div>
-                    <div className="row gy-5 gy-lg-4 gx-4">
-                        <div className="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
-                            <div className="team-item">
-                                <div className="team-img">
-                                    <img
-                                        src="/img/team-1.jpg"
-                                        className="img-fluid w-100"
-                                        alt="Image"
-                                    />
-                                    <div className="team-icon">
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-facebook-f" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-twitter" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-instagram" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-linkedin-in" />
-                                        </a>
+                    {loading ? (
+                        <div className="d-flex justify-content-center py-5">
+                            <RingLoader color="#eb0c1b" loading={loading} cssOverride={override} size={80} />
+                        </div>
+                    ) : trainers.length > 0 ? (
+                        <div className="row gy-5 gy-lg-4 gx-4">
+                            {trainers.map((trainer, index) => (
+                                <div className="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay={0.2 * (index + 1)} key={trainer._id}>
+                                    <div className="team-item">
+                                        <div className="team-img">
+                                            <img
+                                                src={trainer.image || "img/team-1.jpg"}
+                                                className="img-fluid w-100"
+                                                alt={trainer.name}
+                                            />
+                                        </div>
+                                        <div className="team-content">
+                                            <h4>{trainer.name}</h4>
+                                            <p className="mb-0">{trainer.specialization || "Fitness Trainer"}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="team-content">
-                                    <h4>Aisha Verma</h4>
-                                    <p className="mb-0">Fitness & Aerobics</p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
-                        <div className="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
-                            <div className="team-item">
-                                <div className="team-img">
-                                    <img
-                                        src="/img/team-2.jpg"
-                                        className="img-fluid w-100"
-                                        alt="Image"
-                                    />
-                                    <div className="team-icon">
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-facebook-f" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-twitter" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-instagram" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-linkedin-in" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="team-content">
-                                    <h4>David Willson</h4>
-                                    <p className="mb-0">Functional FItness Coach</p>
-                                </div>
-                            </div>
+                    ) : (
+                        <div className="text-center py-4">
+                            <p className="text-muted fs-5">No trainers available.</p>
                         </div>
-                        <div className="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.6s">
-                            <div className="team-item">
-                                <div className="team-img">
-                                    <img
-                                        src="/img/team-3.jpg"
-                                        className="img-fluid w-100"
-                                        alt="Image"
-                                    />
-                                    <div className="team-icon">
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-facebook-f" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-twitter" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-instagram" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-linkedin-in" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="team-content">
-                                    <h4>Michael Carter</h4>
-                                    <p className="mb-0">Powerlifting Coach</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.8s">
-                            <div className="team-item">
-                                <div className="team-img">
-                                    <img
-                                        src="/img/team-4.jpg"
-                                        className="img-fluid w-100"
-                                        alt="Image"
-                                    />
-                                    <div className="team-icon">
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-facebook-f" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-twitter" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-instagram" />
-                                        </a>
-                                        <a href="#" className="btn btn-primary btn-sm-square">
-                                            <i className="fab fa-linkedin-in" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="team-content">
-                                    <h4>Rajat Singh</h4>
-                                    <p className="mb-0">Bodybuilding Specialist</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    )}
                 </div>
             </div>
             {/* Team End */}
@@ -1024,7 +963,7 @@ export default function Home() {
                                     <p className="mb-0"><span className="text-primary me-2">✓</span><strong>(INCLUDES GST)</strong></p>
                                 </div>
                                 <hr />
-                               {!isLogin ?
+                                {!isLogin ?
                                     (<Link to="/register" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
                                         Join Now
                                     </Link>) : (<Link to="/batches" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
