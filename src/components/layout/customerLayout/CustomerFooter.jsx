@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ChatBot from "react-chatbotify";
+import { BASE_URL } from "../../../endPoints";
 
 export default function CustomerFooter() {
 const settings = {
@@ -28,7 +29,7 @@ const settings = {
     chat: {
       message: async (params) => {
         try {
-          const res = await fetch("http://localhost:6400/customer/genAi", {
+          const res = await fetch(BASE_URL + "customer/genAi", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
