@@ -6,9 +6,11 @@ import BMICalculator from "../layout/customerLayout/BmiCalculator";
 
 export default function Home() {
     const [batches, setBatches] = useState([])
+    const [isLogin, setIsLogin] = useState(false)
 
     useEffect(() => {
         getAllBatch()
+        setIsLogin(localStorage.getItem("token") ? true : false)
     }, [])
 
     const getAllBatch = () => {
@@ -78,56 +80,56 @@ export default function Home() {
             </div>
             {/* Modal Search End */}
             {/* Carousel Start */}
-     <div className="header-carousel overflow-hidden bg-dark">
-  <div className="header-carousel-item hero-section">
-    <div className="hero-bg-half-2" />
+            <div className="header-carousel overflow-hidden bg-dark">
+                <div className="header-carousel-item hero-section">
+                    <div className="hero-bg-half-2" />
 
-    <div className="carousel-caption">
-      <div className="container">
-        <div className="row g-4 align-items-center">
+                    <div className="carousel-caption">
+                        <div className="container">
+                            <div className="row g-4 align-items-center">
 
-          <div className="col-lg-7 animated fadeInLeft">
-            <div className="text-sm-center text-md-start">
+                                <div className="col-lg-7 animated fadeInLeft">
+                                    <div className="text-sm-center text-md-start">
 
-              <h4 className="text-primary text-uppercase fw-bold mb-3">
-                Welcome to FitMatrix
-              </h4>
+                                        <h4 className="text-primary text-uppercase fw-bold mb-3">
+                                            Welcome to FitMatrix
+                                        </h4>
 
-              {/* FIXED HEADING */}
-              <h1 
-                className="text-white mb-3 fw-bold"
-                style={{
-                  fontSize: "clamp(28px, 4vw, 48px)",
-                  lineHeight: "1.2",
-                  maxWidth: "600px"
-                }}
-              >
-                Transform Your Body with FitMatrix
-              </h1>
+                                        {/* FIXED HEADING */}
+                                        <h1
+                                            className="text-white mb-3 fw-bold"
+                                            style={{
+                                                fontSize: "clamp(28px, 4vw, 48px)",
+                                                lineHeight: "1.2",
+                                                maxWidth: "600px"
+                                            }}
+                                        >
+                                            Transform Your Body with FitMatrix
+                                        </h1>
 
-              {/* FIXED PARAGRAPH */}
-              <p 
-                className="mb-4"
-                style={{
-                  fontSize: "16px",
-                  maxWidth: "500px"
-                }}
-              >
-                FitMatrix helps you stay fit with expert trainers, modern equipment,
-                and personalized workout programs designed to achieve your fitness goals.
-              </p>
+                                        {/* FIXED PARAGRAPH */}
+                                        <p
+                                            className="mb-4"
+                                            style={{
+                                                fontSize: "16px",
+                                                maxWidth: "500px"
+                                            }}
+                                        >
+                                            FitMatrix helps you stay fit with expert trainers, modern equipment,
+                                            and personalized workout programs designed to achieve your fitness goals.
+                                        </p>
 
-              
 
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
             {/* Carousel End */}
             {/* About Start */}
             <div className="container-fluid about pt-5">
@@ -339,7 +341,7 @@ export default function Home() {
                             Affordable Membership,
                             <br />
 
-                            Train Smart. Train Strong. Train at FIT. 
+                            Train Smart. Train Strong. Train at FIT.
                         </p>
                     </div>
                     <br />
@@ -367,77 +369,77 @@ export default function Home() {
                                     </div>
                                 ))}
                                 {!batches.length && <>
-                                <div className="col">
-                                    <div className="feature-item wow fadeInUp" data-wow-delay="0.2s">
-                                        <div className="feature-img">
-                                            <img src="/img/feature-1.jpg" className="img-fluid " alt="" />
-                                        </div>
-                                        <div className="feature-content p-4">
-                                            <h4 className="mb-3">Work Your Butt Off</h4>
-                                            <p className="mb-4">
-                                                Push your limits, and give your maximum effort to achieve the strength you always wanted.
-                                            </p>
-                                            <a href="#" className="btn btn-primary py-2 px-4">
-                                                {" "}
-                                                <span>Read More</span>
-                                            </a>
+                                    <div className="col">
+                                        <div className="feature-item wow fadeInUp" data-wow-delay="0.2s">
+                                            <div className="feature-img">
+                                                <img src="/img/feature-1.jpg" className="img-fluid " alt="" />
+                                            </div>
+                                            <div className="feature-content p-4">
+                                                <h4 className="mb-3">Work Your Butt Off</h4>
+                                                <p className="mb-4">
+                                                    Push your limits, and give your maximum effort to achieve the strength you always wanted.
+                                                </p>
+                                                <a href="#" className="btn btn-primary py-2 px-4">
+                                                    {" "}
+                                                    <span>Read More</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="col">
-                                    <div className="feature-item wow fadeInUp" data-wow-delay="0.4s">
-                                        <div className="feature-img">
-                                            <img src="/img/feature-2.jpg" className="img-fluid w-100" alt="" />
-                                        </div>
-                                        <div className="feature-content p-4">
-                                            <h4 className="mb-3">Get In The groove</h4>
-                                            <p className="mb-4">
-                                                Find your rhythm, enjoy every workout, and make fitness a part of your daily lifestyle.
-                                            </p>
-                                            <a href="#" className="btn btn-primary py-2 px-4">
-                                                {" "}
-                                                <span>Read More</span>
-                                            </a>
+                                    <div className="col">
+                                        <div className="feature-item wow fadeInUp" data-wow-delay="0.4s">
+                                            <div className="feature-img">
+                                                <img src="/img/feature-2.jpg" className="img-fluid w-100" alt="" />
+                                            </div>
+                                            <div className="feature-content p-4">
+                                                <h4 className="mb-3">Get In The groove</h4>
+                                                <p className="mb-4">
+                                                    Find your rhythm, enjoy every workout, and make fitness a part of your daily lifestyle.
+                                                </p>
+                                                <a href="#" className="btn btn-primary py-2 px-4">
+                                                    {" "}
+                                                    <span>Read More</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="col">
-                                    <div className="feature-item wow fadeInUp" data-wow-delay="0.6s">
-                                        <div className="feature-img">
-                                            <img src="/img/feature-3.jpg" className="img-fluid w-100" alt="" />
-                                        </div>
-                                        <div className="feature-content p-4">
-                                            <h4 className="mb-3">It's more Than A Game</h4>
-                                            <p className="mb-4">
-                                                Fitness is not just a workout; it’s a lifestyle, discipline, and commitment.
-                                            </p>
-                                            <a href="#" className="btn btn-primary py-2 px-4">
-                                                {" "}
-                                                <span>Read More</span>
-                                            </a>
+                                    <div className="col">
+                                        <div className="feature-item wow fadeInUp" data-wow-delay="0.6s">
+                                            <div className="feature-img">
+                                                <img src="/img/feature-3.jpg" className="img-fluid w-100" alt="" />
+                                            </div>
+                                            <div className="feature-content p-4">
+                                                <h4 className="mb-3">It's more Than A Game</h4>
+                                                <p className="mb-4">
+                                                    Fitness is not just a workout; it’s a lifestyle, discipline, and commitment.
+                                                </p>
+                                                <a href="#" className="btn btn-primary py-2 px-4">
+                                                    {" "}
+                                                    <span>Read More</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="col">
-                                    <div className="feature-item">
-                                        <div className="feature-img">
-                                            <img src="/img/feature-4.jpg" className="img-fluid w-100" alt="" />
-                                        </div>
-                                        <div className="feature-content p-4">
-                                            <h4 className="mb-3">Get Fit Don't Quit</h4>
-                                            <p className="mb-4">
-                                                Stay committed to your goals, push your limits, and never give up, now matter what!
-                                            </p>
-                                            <a href="#" className="btn btn-primary py-2 px-4">
-                                                {" "}
-                                                <span>Read More</span>
-                                            </a>
+                                    <div className="col">
+                                        <div className="feature-item">
+                                            <div className="feature-img">
+                                                <img src="/img/feature-4.jpg" className="img-fluid w-100" alt="" />
+                                            </div>
+                                            <div className="feature-content p-4">
+                                                <h4 className="mb-3">Get Fit Don't Quit</h4>
+                                                <p className="mb-4">
+                                                    Stay committed to your goals, push your limits, and never give up, now matter what!
+                                                </p>
+                                                <a href="#" className="btn btn-primary py-2 px-4">
+                                                    {" "}
+                                                    <span>Read More</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </>
                                 }
                             </div>
@@ -999,9 +1001,12 @@ export default function Home() {
                                     <p className="mb-0"><span className="text-primary me-2"></span><strong>(INCLUDES GST)</strong></p>
                                 </div>
                                 <hr />
-                                <Link to="/register" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
-                                    Join Now
-                                </Link>
+                                {!isLogin ?
+                                    (<Link to="/register" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
+                                        Join Now
+                                    </Link>) : (<Link to="/batches" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
+                                        Join Now
+                                    </Link>)}
                             </div>
                         </div>
 
@@ -1019,9 +1024,12 @@ export default function Home() {
                                     <p className="mb-0"><span className="text-primary me-2">✓</span><strong>(INCLUDES GST)</strong></p>
                                 </div>
                                 <hr />
-                                <Link to="/register" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
-                                    Join Now
-                                </Link>
+                               {!isLogin ?
+                                    (<Link to="/register" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
+                                        Join Now
+                                    </Link>) : (<Link to="/batches" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
+                                        Join Now
+                                    </Link>)}
                             </div>
                         </div>
 
@@ -1037,9 +1045,12 @@ export default function Home() {
                                     <p className="mb-0"><span className="text-primary me-2">✓</span><strong>(INCLUDES GST)</strong></p>
                                 </div>
                                 <hr />
-                                <Link to="/register" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
-                                    Join Now
-                                </Link>
+                                {!isLogin ?
+                                    (<Link to="/register" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
+                                        Join Now
+                                    </Link>) : (<Link to="/batches" className="btn btn-primary py-2 px-4 mt-2 text-uppercase fw-bold">
+                                        Join Now
+                                    </Link>)}
                             </div>
                         </div>
 
