@@ -48,12 +48,10 @@ export default function CustomerHeader() {
 
     const submit = (e) => {
         e.preventDefault()
-        console.log("hello");
-
         setLoading(true)
         let payload = {
-            email: email,
-            password: password
+            email: email.trim(),
+            password: password.trim()
         }
         login(payload).then((res) => {
             if (res.data.success) {
@@ -68,12 +66,15 @@ export default function CustomerHeader() {
                     nav("/admin/dashboard")
                 }
                 else if (res.data.data.userType == 2) {
+                    localStorage.setItem("trainerId", res.data.data.trainerId)
+
                     nav("/trainer/dashboard")
                 }
                 else if (res.data.data.userType == 3) {
                     nav("/")
                 }
                 else {
+                    setLoading(false)
                     toast.error("Invalid user type")
                 }
             } else {
@@ -85,195 +86,218 @@ export default function CustomerHeader() {
             console.log(err);
             toast.error(err)
         })
+
+        // if (name== "Admin" && email == "admin@gmail.com" && password == "1234") {
+        //     localStorage.setItem("email", email)
+        //     localStorage.setItem("isLoggedIn", true)
+        //     toast.success("Login Successfully")
+        //     nav("/admin/users/manage")
+        // }
+        // else if (name=="Saksham" && email == "saksham@gmail.com" && password == "1234") {
+        //     localStorage.setItem("email", email)
+        //     localStorage.setItem("isLoggedIn", true)
+        //     toast.success("Login Successfully")
+        //     nav("/")
+        // }
+        // else if (name=="Trainer" && email == "trainer@gmail.com" && password == "1234") {
+        //     localStorage.setItem("email", email)
+        //     localStorage.setItem("isLoggedIn", true)
+        //     toast.success("Login Successfully")
+        //     nav("/trainer/users/manage")
+        // }
+        // else{
+        //     toast.error("Invalid email or password")
+        // }
+
     }
     return (
         <>
-              <ReactModal
-  isOpen={modalIsOpen}
-  onRequestClose={closeModal}
-  style={{
-    overlay: {
-      backgroundColor: "rgba(0,0,0,0.7)",
-      backdropFilter: "blur(5px)",
-      zIndex: 999,
-    },
-    content: {
-      width: "55%",
-      maxWidth: "650px",
-      height: "550px",
-      margin: "auto",
-      padding: "0",
-      border: "none",
-      borderRadius: "18px",
-      overflow: "hidden",
-      background: "#07154A",
-      boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
-      animation: "popupZoom 0.4s ease",
-    },
-  }}
-  contentLabel="Login Modal"
->
-  <div
-    className="form-section p-5 position-relative"
-    style={{
-      background: "#07154A",
-    }}
-  >
-
-    {/* Close Button */}
- <button
-  onClick={closeModal}
-  style={{
-    position: "absolute",
-    top: "10px",
-    right: "15px",
-    border: "none",
-    background: "rgba(255,255,255,0.08)",
-    cursor: "pointer",
-    fontSize: "28px",
-    color: "#00d4ff",
-    width: "42px",
-    height: "42px",
-    borderRadius: "50%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    transition: "0.3s ease",
-    boxShadow: "0 0 10px rgba(0,212,255,0.4)"
-  }}
-  onMouseEnter={(e) => {
-    e.target.style.background = "#00d4ff";
-    e.target.style.color = "#001f3f";
-    e.target.style.transform = "rotate(90deg) scale(1.1)";
-  }}
-  onMouseLeave={(e) => {
-    e.target.style.background = "rgba(255,255,255,0.08)";
-    e.target.style.color = "#00d4ff";
-    e.target.style.transform = "rotate(0deg) scale(1)";
-  }}
->
-  <i className="bi bi-x"></i>
-</button>
-
-    {/* Heading */}
-    <h1
-      className="text-white text-center mb-5"
-      style={{
-        fontWeight: "700",
-        fontSize: "55px",
-        letterSpacing: "1px",
-      }}
-    >
-      Login
-    </h1>
-
-    <form onSubmit={submit}>
-      <div className="row g-4">
-
-        {/* Email */}
-        <div className="col-12">
-          <div className="form-floating">
-            <input
-              type="email"
-              className="form-control border-0"
-              id="email"
-              value={email}
-              placeholder="Enter Email"
-              onChange={(e) => setEmail(e.target.value)}
-              style={{
-                height: "65px",
-                borderRadius: "12px",
-                background: "#f4f4f4",
-                fontSize: "17px",
-                boxShadow: "none",
-              }}
-            />
-            <label htmlFor="email">Enter Email</label>
-          </div>
-        </div>
-
-        {/* Password */}
-        <div className="col-12">
-          <div className="form-floating">
-            <input
-              type="password"
-              className="form-control border-0"
-              id="password"
-              value={password}
-              placeholder="Enter Password"
-              onChange={(e) => setPassword(e.target.value)}
-              style={{
-                height: "65px",
-                borderRadius: "12px",
-                background: "#f4f4f4",
-                fontSize: "17px",
-                boxShadow: "none",
-              }}
-            />
-            <label htmlFor="password">Enter Password</label>
-          </div>
-        </div>
-
-        {/* Checkbox */}
-        <div className="col-12">
-          <div className="form-check mt-2">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="flexCheck"
-              style={{
-                cursor: "pointer",
-              }}
-            />
-
-            <label
-              className="form-check-label text-light"
-              htmlFor="flexCheck"
-              style={{
-                fontSize: "15px",
-                opacity: "0.9",
-              }}
+            <ReactModal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={{
+                    overlay: {
+                        backgroundColor: "rgba(0,0,0,0.7)",
+                        backdropFilter: "blur(5px)",
+                        zIndex: 999,
+                    },
+                    content: {
+                        width: "55%",
+                        maxWidth: "650px",
+                        height: "550px",
+                        margin: "auto",
+                        padding: "0",
+                        border: "none",
+                        borderRadius: "18px",
+                        overflow: "hidden",
+                        background: "#07154A",
+                        boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
+                        animation: "popupZoom 0.4s ease",
+                    },
+                }}
+                contentLabel="Login Modal"
             >
-              I agree with the site privacy policy
-            </label>
-          </div>
-        </div>
+                <div
+                    className="form-section p-5 position-relative"
+                    style={{
+                        background: "#07154A",
+                    }}
+                >
 
-        {/* Button */}
-        <div className="col-12 mt-4">
-          <button
-            className="w-100 border-0"
-            type="submit"
-            style={{
-              background: "#e6004c",
-              color: "#fff",
-              height: "60px",
-              borderRadius: "12px",
-              fontSize: "20px",
-              fontWeight: "600",
-              letterSpacing: "1px",
-              transition: "0.3s",
-              boxShadow: "0 5px 20px rgba(230,0,76,0.4)",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = "translateY(-3px)";
-              e.target.style.background = "#ff0055";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "translateY(0px)";
-              e.target.style.background = "#e6004c";
-            }}
-          >
-            LOGIN
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
+                    {/* Close Button */}
+                    <button
+                        onClick={closeModal}
+                        style={{
+                            position: "absolute",
+                            top: "10px",
+                            right: "15px",
+                            border: "none",
+                            background: "rgba(255,255,255,0.08)",
+                            cursor: "pointer",
+                            fontSize: "28px",
+                            color: "#00d4ff",
+                            width: "42px",
+                            height: "42px",
+                            borderRadius: "50%",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            transition: "0.3s ease",
+                            boxShadow: "0 0 10px rgba(0,212,255,0.4)"
+                        }}
+                        onMouseEnter={(e) => {
+                            e.target.style.background = "#00d4ff";
+                            e.target.style.color = "#001f3f";
+                            e.target.style.transform = "rotate(90deg) scale(1.1)";
+                        }}
+                        onMouseLeave={(e) => {
+                            e.target.style.background = "rgba(255,255,255,0.08)";
+                            e.target.style.color = "#00d4ff";
+                            e.target.style.transform = "rotate(0deg) scale(1)";
+                        }}
+                    >
+                        <i className="bi bi-x"></i>
+                    </button>
 
-  {/* Animation */}
-  <style>
-    {`
+                    {/* Heading */}
+                    <h1
+                        className="text-white text-center mb-5"
+                        style={{
+                            fontWeight: "700",
+                            fontSize: "55px",
+                            letterSpacing: "1px",
+                        }}
+                    >
+                        Login
+                    </h1>
+
+                    <form onSubmit={submit}>
+                        <div className="row g-4">
+
+                            {/* Email */}
+                            <div className="col-12">
+                                <div className="form-floating">
+                                    <input
+                                        type="email"
+                                        className="form-control border-0"
+                                        id="email"
+                                        value={email}
+                                        placeholder="Enter Email"
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        style={{
+                                            height: "65px",
+                                            borderRadius: "12px",
+                                            background: "#f4f4f4",
+                                            fontSize: "17px",
+                                            boxShadow: "none",
+                                        }}
+                                    />
+                                    <label htmlFor="email">Enter Email</label>
+                                </div>
+                            </div>
+
+                            {/* Password */}
+                            <div className="col-12">
+                                <div className="form-floating">
+                                    <input
+                                        type="password"
+                                        className="form-control border-0"
+                                        id="password"
+                                        value={password}
+                                        placeholder="Enter Password"
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        style={{
+                                            height: "65px",
+                                            borderRadius: "12px",
+                                            background: "#f4f4f4",
+                                            fontSize: "17px",
+                                            boxShadow: "none",
+                                        }}
+                                    />
+                                    <label htmlFor="password">Enter Password</label>
+                                </div>
+                            </div>
+
+                            {/* Checkbox */}
+                            <div className="col-12">
+                                <div className="form-check mt-2">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        id="flexCheck"
+                                        style={{
+                                            cursor: "pointer",
+                                        }}
+                                    />
+
+                                    <label
+                                        className="form-check-label text-light"
+                                        htmlFor="flexCheck"
+                                        style={{
+                                            fontSize: "15px",
+                                            opacity: "0.9",
+                                        }}
+                                    >
+                                        I agree with the site privacy policy
+                                    </label>
+                                </div>
+                            </div>
+
+                            {/* Button */}
+                            <div className="col-12 mt-4">
+                                <button
+                                    className="w-100 border-0"
+                                    type="submit"
+                                    style={{
+                                        background: "#e6004c",
+                                        color: "#fff",
+                                        height: "60px",
+                                        borderRadius: "12px",
+                                        fontSize: "20px",
+                                        fontWeight: "600",
+                                        letterSpacing: "1px",
+                                        transition: "0.3s",
+                                        boxShadow: "0 5px 20px rgba(230,0,76,0.4)",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.target.style.transform = "translateY(-3px)";
+                                        e.target.style.background = "#ff0055";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.target.style.transform = "translateY(0px)";
+                                        e.target.style.background = "#e6004c";
+                                    }}
+                                >
+                                    LOGIN
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                {/* Animation */}
+                <style>
+                    {`
       @keyframes popupZoom {
         from {
           opacity: 0;
@@ -285,8 +309,8 @@ export default function CustomerHeader() {
         }
       }
     `}
-  </style>
-</ReactModal>
+                </style>
+            </ReactModal>
 
             {/* Navbar & Hero Start */}
             <div className="container-fluid header-top">
