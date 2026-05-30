@@ -58,7 +58,7 @@ export default function TrainerHeader() {
                                 </div>
                             </div>
                         </div>
-                        <div className="nav-bar px-0 py-lg-0" style={{ height: 80 }}>
+                        <div className="nav-bar px-0 py-lg-0" style={{ minHeight: 80 }}>
                             <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
                                 <a href="#" className="navbar-brand-2">
                                     <h1 className="mb-0" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

@@ -308,6 +308,27 @@ export default function CustomerHeader() {
           transform: scale(1);
         }
       }
+      @media (max-width: 768px) {
+        .ReactModal__Content {
+          width: 92% !important;
+          height: 550px !important;
+          max-height: 90vh !important;
+          overflow-y: auto !important;
+          border-radius: 12px !important;
+          top: 50% !important;
+          left: 50% !important;
+          right: auto !important;
+          bottom: auto !important;
+          transform: translate(-50%, -50%) !important;
+        }
+        .ReactModal__Content .form-section {
+          padding: 25px 20px !important;
+        }
+        .ReactModal__Content h1 {
+          font-size: 32px !important;
+          margin-bottom: 25px !important;
+        }
+      }
     `}
                 </style>
             </ReactModal>
@@ -361,7 +382,7 @@ export default function CustomerHeader() {
                                 </div>
                             </div>
                         </div>
-                        <div className="nav-bar px-0 py-lg-0" style={{ height: 80 }}>
+                        <div className="nav-bar px-0 py-lg-0" style={{ minHeight: 80 }}>
                             <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
                                 <a href="#" className="navbar-brand-2">
                                     <h1 className="mb-0" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '10px' }}>

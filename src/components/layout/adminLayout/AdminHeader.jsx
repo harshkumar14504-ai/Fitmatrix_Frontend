@@ -110,13 +110,13 @@ export default function AdminHeader() {
                 </div>
               </div>
             </div>
-            <div className="nav-bar px-0 py-lg-0" style={{ height: 80 }}>
+            <div className="nav-bar px-0 py-lg-0" style={{ minHeight: 80 }}>
               <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
                 <a href="#" className="navbar-brand-2">
-                  <h1 className="text-primary mb-0">
-                    <i className="fas fa-hand-rock me-2" /> Fitness
+                  <h1 className="mb-0" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <i className="fas fa-dumbbell text-danger" />
+                    <span style={{ fontWeight: 900, letterSpacing: "2px", color: "white" }}>FITMATRIX</span>
                   </h1>
-                  {/* <img src="img/logo.png" alt="Logo"> */}
                 </a>
                 <button
                   className="navbar-toggler"
