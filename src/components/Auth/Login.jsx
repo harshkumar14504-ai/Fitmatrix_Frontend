@@ -154,70 +154,70 @@ export default function Login() {
             </div>
             {/* Modal Search End */}
             {/* Header Start */}
-         
+
             {/* Header End */}
-{/* Contact Start */}
-           <div className="container-xxl py-5">
-                     <RingLoader
+            {/* Contact Start */}
+            <div className="container-xxl py-5">
+                <RingLoader
                     color={color}
                     loading={loading}
                     cssOverride={override}
                     size={100}
                 />
-                    <div className="container">
-                        <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-                            <h6 className="section-title bg-white text-center text-primary px-3">
-                                Login
-                            </h6>
+                <div className="container">
+                    <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <h6 className="section-title bg-white text-center text-primary px-3">
+                            Login
+                        </h6>
 
-                        </div>
-                        <div className="row g-4">
+                    </div>
+                    <div className="row g-4">
 
 
-                            <div className="col-lg-6 offset-lg-3 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                                <form onSubmit={submit}>
-                                    <div className="row g-3">
-                                        <div className="col-md-12">
-                                            <div className="form-floating">
-                                                <input
-                                                    type="email"
-                                                    className="form-control"
-                                                    id="email" value={email}
-                                                    placeholder="Your Email"
-                                                    onChange={(e) => setEmail(e.target.value)}
-                                                />
+                        <div className="col-lg-6 offset-lg-3 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                            <form onSubmit={submit}>
+                                <div className="row g-3">
+                                    <div className="col-md-12">
+                                        <div className="form-floating">
+                                            <input
+                                                type="email"
+                                                className="form-control"
+                                                id="email" value={email}
+                                                placeholder="Your Email"
+                                                onChange={(e) => setEmail(e.target.value)}
+                                            />
 
-                                              
-                                                <label htmlFor="email">Your Email</label>
-                                            </div>
-                                        </div>
-                                        <div className="col-12">
-                                            <div className="form-floating">
-                                                <input
-                                                    type="password"
-                                                    className="form-control"
-                                                    id="subject"
-                                                    placeholder="Password" value={password}
-                                                    onChange={(e) => setPassword(e.target.value)}
 
-                                                />
-
-                                               
-                                                <label htmlFor="subject">Password</label>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-12">
-                                            <button className="btn btn-primary w-100 py-3" type="submit" >
-                                                Login
-                                            </button>
+                                            <label htmlFor="email">Your Email</label>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                    <div className="col-12">
+                                        <div className="form-floating">
+                                            <input
+                                                type="password"
+                                                className="form-control"
+                                                id="subject"
+                                                placeholder="Password" value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
+
+                                            />
+
+
+                                            <label htmlFor="subject">Password</label>
+                                        </div>
+                                    </div>
+
+                                    <div className="col-12">
+                                        <button className="btn btn-primary w-100 py-3" type="submit" >
+                                            Login
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
+            </div>
             {/* Contact End */}
         </>
     )

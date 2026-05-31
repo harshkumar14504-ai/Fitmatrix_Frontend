@@ -80,7 +80,7 @@ export default function TrainerHeader() {
                                         <Link to="/trainer/dashboard" className="nav-item nav-link ">
                                             Dashboard
                                         </Link>
-                                       
+
                                         <Link to="/trainer/batches" className="nav-item nav-link">
                                             View Batches
                                         </Link>

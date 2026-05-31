@@ -162,21 +162,21 @@ export default function AdminHeader() {
                       </a>
                       <div className="dropdown-menu">
                         <Link to="/admin/diets" className="dropdown-item">
-                           View Diets
+                          View Diets
                         </Link>
-                        <Link  to="/admin/exercises" className="dropdown-item">
-                           View Exercises
+                        <Link to="/admin/exercises" className="dropdown-item">
+                          View Exercises
                         </Link>
                         <Link to="/admin/progress" className="dropdown-item">
-                           View Progress
+                          View Progress
                         </Link>
                         <Link to="/admin/contact/manage" className="dropdown-item">
-                              Manage Contact
+                          Manage Contact
                         </Link>
                       </div>
                     </div>
 
-                  
+
 
                     {/* <Link to="/contact" className="nav-item nav-link">
                                             Contact
