@@ -1,0 +1,101 @@
+/* Register.css - Responsive styling for Register component */
+
+/* Base container styling */
+.form-section {
+  width: 100%;
+  max-width: 500px; /* limit width on larger screens */
+  margin: 0 auto;
+  padding: 1rem;
+  background: #07154a;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Heading responsive */
+.form-section h1 {
+  font-weight: 700;
+  font-size: 45px;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+/* Input, select, textarea base */
+.form-section input,
+.form-section select,
+.form-section textarea {
+  height: 58px;
+  border-radius: 10px;
+  background: #f4f4f4;
+  font-size: 16px;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Adjust textarea height */
+.form-section textarea {
+  height: 95px;
+}
+
+/* Button styling */
+.form-section button {
+  background: #e6004c;
+  color: #fff;
+  height: 55px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  box-shadow: 0 5px 20px rgba(230, 0, 76, 0.4);
+  width: 100%;
+  border: none;
+}
+
+.form-section button:hover {
+  background: #ff0055;
+  transform: translateY(-3px);
+}
+
+/* Media queries for small screens */
+  @media (max-width: 576px) {
+    .form-section {
+      width: 90%;
+      padding: 1.5rem 0.5rem !important;
+    }
+    .form-section h1 {
+      font-size: 28px;
+    }
+    .form-section input,
+    .form-section select,
+    .form-section textarea {
+      height: 45px;
+      font-size: 14px;
+    }
+    .form-section textarea {
+      height: 80px;
+    }
+    .form-section button {
+      height: 45px;
+      font-size: 16px;
+    }
+    .form-section .col-lg-6,
+    .form-section .col-12 {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+    /* Bootstrap offset and column overrides for mobile */
+    .offset-lg-2 {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    .col-lg-8 {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+  }
+  

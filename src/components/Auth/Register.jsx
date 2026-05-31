@@ -1,4 +1,5 @@
 import { Profiler, useState } from "react";
+import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register } from "../../services/userService"
