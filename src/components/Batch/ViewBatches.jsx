@@ -35,7 +35,11 @@ export default function ViewBatches() {
 
   const getAllBatch = () => {
     setLoading(true);
-    allBatch({})
+    let filter = {};
+    if (localStorage.getItem("userType") == "2") {
+      filter.trainerAllot = localStorage.getItem("trainerId");
+    }
+    allBatch(filter)
       .then((res) => {
         setLoading(false);
         if (res.data.success) {
