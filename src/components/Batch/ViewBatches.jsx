@@ -104,7 +104,7 @@ export default function ViewBatches() {
       key: "rzp_test_Q8bKRaQdmgftXW", // Replace with your Razorpay key
       amount: batch.fees * 100, // Amount in paise (₹500 = 50000)
       currency: "INR",
-      name: "Pg Renting",
+      name: "Gym MemberShip",
       description: "Test Transaction",
       handler: async function (response) {
         console.log("This is response", response.razorpay_payment_id);
