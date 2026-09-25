@@ -6,7 +6,7 @@ export default function AdminFooter() {
 
   const flow = {
     start: {
-      message: "Welcome to FitLab Admin 💪! Ask me anything about fitness.",
+      message: "Welcome to Fit-Matrix Admin 💪! Ask me anything about fitness.",
       path: "chat"
     },
     chat: {
