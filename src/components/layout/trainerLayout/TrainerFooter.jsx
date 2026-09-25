@@ -6,7 +6,7 @@ export default function TrainerFooter() {
 
   const flow = {
     start: {
-      message: "Welcome to FitLab Trainer 💪! Ask me anything about fitness.",
+      message: "Welcome to Fit-Matrix Trainer 💪! Ask me anything about fitness.",
       path: "chat"
     },
     chat: {
